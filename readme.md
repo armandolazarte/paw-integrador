@@ -7,7 +7,7 @@ Guilmezian, Daniel
 
 ***
 #### Visión General
-Sistema de control de stock para una tienda de ropa que permita administrar el ingreso y egreso de las prendas al local, teniendo un manejo de los proveedores, las ventas (con la posibilidad de devolución ó cambio de la prenda) y un apartado de estadísticas para visualizar de manera gráfica los movimientos del negocio.
+Sistema de control de stock para cualquier modelo de negocios que permita administrar el ingreso y egreso de las prendas al local, teniendo un manejo de los proveedores, las ventas (con la posibilidad de devolución ó cambio de la prenda) y un apartado de estadísticas para visualizar de manera gráfica los movimientos del negocio.
   
   
 ### Especificaciones
