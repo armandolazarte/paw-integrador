@@ -41,13 +41,13 @@ El sistema contará con un sistema de login de usuarios para poder ingresar al m
 **Administración**  
 Se podrá dar de alta usuarios, y roles aplicados a estos.  
 
-###Desarrollo
+### Desarrollo
 
 **Tecnologías**  
 Para el desarrollo de la aplicación se usará php para el backend, basándose en el uso de Laravel como framework, y html, css y javascript puro para el front-end. Para el apartado de gráficos se hará uso de la librería:  
 Se usará mysql como sistema gestor de base de datos.
 
-###Pantallas
+### Pantallas
 
 **Home**  
 ![home](img/home.png)
