@@ -1,16 +1,16 @@
-#Sistema de Control de Stock / Ventas
-######Mayo 2019
+# Sistema de Control de Stock / Ventas
+###### Mayo 2019
 
 
 Rocha, Matías  
 Guilmezian, Daniel  
 
 ***
-####Visión General
+#### Visión General
 Sistema de control de stock para una tienda de ropa que permita administrar el ingreso y egreso de las prendas al local, teniendo un manejo de los proveedores, las ventas (con la posibilidad de devolución ó cambio de la prenda) y un apartado de estadísticas para visualizar de manera gráfica los movimientos del negocio.
   
   
-###Especificaciones
+### Especificaciones
 
 **Carga de Productos**  
 Se podrá cargar / eliminar / modificar productos teniendo en cuenta el manejo de proveedores. Cada producto tiene una categoría.  
