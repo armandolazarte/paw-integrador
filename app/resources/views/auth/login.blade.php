@@ -40,7 +40,10 @@
 
 
             </form>
-
+            <br>
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                ¿Olvidó su contraseña?
+            </a>
         </section>
 
         @section('js')
