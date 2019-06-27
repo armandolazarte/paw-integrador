@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url(reset.css);
+
+html, body, main {
+    height: 100%;
+}
+
+main {
+  background-color: #F2F2F2;
+  transition: all .2s ease-in-out;
+}
+
+main.success {
+  background-color: #00f06359;
+}
+
+main.error {
+  background-color: #ff00008a;
+}
+
+
+#login {
+    background-color: #FCFCFC;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    width: 400px;
+    height: 320px;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login__title {
+    position: relative;
+    background-color: #1A1C1D;
+    width: 100%;
+    padding: 20px 0px;
+    border-radius: 0.35em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.login__title h3 {
+    font-size: 22px;
+    color: white;
+}
+
+form.form-login {
+    padding: 0 48px;
+}
+
+.row {
+    margin: auto;
+    border-radius: 4px;
+    background-color: #ededed;
+    padding: 8px 0px;
+    margin-top: 15px;
+}
+
+input[type=checkbox] {
+	cursor: pointer;
+}
+
+input[type=text] {
+	color: #949494;
+    margin: 0;
+    background-color: #ededed;
+    border: 1px solid #ededed;
+    padding: 6px 0px;
+    border-radius: 3px;
+}
+
+input[type=text]:focus {
+    border: 1px solid #ededed;
+}
+
+input[type=password] {
+	color: #949494;
+    margin: 0;
+    background-color: #ededed;
+    border: 1px solid #ededed;
+    padding: 6px 0px;
+    border-radius: 3px;
+}
+
+input[type=password]:focus {
+    border: 1px solid #ededed;
+}
+
+input[type=email] {
+	color: #949494;
+    margin: 0;
+    background-color: #ededed;
+    border: 1px solid #ededed;
+    padding: 6px 0px;
+    border-radius: 3px;
+}
+
+input[type=email]:focus {
+    border: 1px solid #ededed;
+}
+
+*:focus {
+    outline: none;
+}
+
+.btn-login {
+  background: #373E4A;
+  color: #C1C3C6;
+  font-weight: bold;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100%;
+  padding: 16px 0px;
+  margin-top: 15px;
+}
+
+.error {
+  border: solid 1px red;
+}
+
+span.info-box {
+  border: solid 1px red;
+  padding: 8px;
+  background-color: #ff00001c;
+  border-radius: 4px;
+  display: block;
+  margin: 10px 0;
+}

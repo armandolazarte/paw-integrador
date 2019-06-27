@@ -1,0 +1,11 @@
+// tablas: filtrado y ordenado.  ya esta, hay que meterlo en el .js general
+//TODO       select: con buscador (live o con predictivo)
+//       logo
+//Listo nombre (y se agregó el username)
+//       js de lineas
+//TODO       notificaciones
+// agregar boton imprimir en ingresos
+// agregar boton imprimir en ventas
+// mejorar menu (agrupar)
+// agregar font awesome
+// aregar ajax login (importante)
