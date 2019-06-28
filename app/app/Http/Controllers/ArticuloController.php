@@ -29,7 +29,11 @@ class ArticuloController extends Controller
     		->paginate(10); //pagina de a 7 registros
     		;
 
-    		return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query]); //va a devolver la vista almacenada en almacen/cateogria  y se le pasan los parametros categorias (las listadas de la variable) y texto de busqueda que tenemos en la variable query
+        if ($request->has('json')) {
+          return $articulos;
+        } else {
+          return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query]); //va a devolver la vista almacenada en almacen/cateogria  y se le pasan los parametros categorias (las listadas de la variable) y texto de busqueda que tenemos en la variable query
+        }
     	}
     }
 

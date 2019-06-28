@@ -13,7 +13,7 @@ window.onload = function() {
   function agregar(){
     let art = document.getElementById("pidarticulo");
     let idarticulo = art.value;
-    let articulo = art.options[art.selectedIndex].text;
+    let articulo = document.getElementById("articulo").value;
     let cantidad  = document.getElementById("pcantidad").value;
     let precio_compra = document.getElementById("pprecio_compra").value;
     let precio_venta = document.getElementById("pprecio_venta").value;

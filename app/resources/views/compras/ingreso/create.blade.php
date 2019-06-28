@@ -8,7 +8,7 @@
 <section class="page-form">
 	{!!Form::open((array('url' => 'compras/ingreso', 'method'=>'POST', 'autocomplete'=>'off')))!!}
 	{{Form::token()}}
-	
+
 	<div class="form-group">
 		<label for="proveedor">Proveedor</label>
 		<select name="idproveedor" id="idproveedor" class="form-control selectpicker" data-live-search="true">
@@ -31,11 +31,10 @@
 		<input type="text" name="num_comprobante" required value="{{old('num_comprobante')}}" placeholder="Numero comprobante...">
 
 		<label>Articulo</label>
-		<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
-			@foreach($articulos as $articulo)
-			<option value="{{$articulo->idarticulo}}">{{$articulo->articulo}}</option>
-			@endforeach
-		</select>
+		<input type="text" name="name" id="articulo" list="search_list" placeholder="Buscar...">
+		<input type="hidden" name="pidarticulo" id="pidarticulo">
+		<datalist id="search_list">
+		</datalist>
 
 		<label for="cantidad">Cantidad</label>
 		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cantidad">
@@ -85,4 +84,5 @@
 
 @push('scripts')
 	<script src="{{asset('js/ingreso.js')}}"></script>
+	<script src="{{asset('js/predictive.js')}}"></script>
  @endpush
