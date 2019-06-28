@@ -255,7 +255,8 @@ th, td {
     text-align: left;
     padding: 8px;
     border: 1px solid black;
-    cursor: pointer
+    cursor: pointer;
+    vertical-align: middle;
 }
 
 /* tr:nth-child(even) {

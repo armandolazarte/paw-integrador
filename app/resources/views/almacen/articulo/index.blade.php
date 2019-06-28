@@ -40,7 +40,7 @@
                     <td>{{$art->minStock}}</td>
                     <td>{{$art->stock}}</td>
                     <td>
-                        <img src="{{asset('imagenes/'.$art->imagen)}}" alt="{{$art->nombre}}" height="100px"
+                        <img src="{{asset('imagenes/articulos/'.$art->imagen)}}" alt="{{$art->nombre}}" height="100px"
                              width="100px" class="img-thumbnail">
                     </td>
 

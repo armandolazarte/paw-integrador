@@ -13,7 +13,7 @@
                     </span>
                 </a>
                 <ul class="submenu">
-                    @can('categeories')
+                    @can('categories')
                         <li>
                             <a href="{{url('almacen/categoria')}}">Categorías de Artículos</a>
                         </li>

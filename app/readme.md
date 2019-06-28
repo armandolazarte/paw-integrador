@@ -18,8 +18,11 @@
         4.   MAIL_USERNAME=noreply@xxx.com
         5.   MAIL_PASSWORD=xxx
         6.   MAIL_ENCRYPTION=tls
-4. Ejecutar el comando 'php artisan key:generate'
-5. Ejecutar el comando 'composer install'
+4. Ejecutar el comando 'composer install'
+5. Ejecutar el comando 'php artisan key:generate'
 6. Ejecutar: php artisan migrate
-7. Ejecutar: php artisan db:seed --class=Roles --class=permissions --class=GivePermissions --class=admin
-8. Ejecutar el comando 'php artisan serve'
+7. Ejecutar: php artisan db:seed --class=Roles
+8. Ejecutar: php artisan db:seed --class=permissions
+9. Ejecutar: php artisan db:seed --class=GivePermissions
+10. Ejecutar: php artisan db:seed --class=admin
+11. Ejecutar el comando 'php artisan serve'
