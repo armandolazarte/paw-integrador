@@ -47,5 +47,6 @@
                 </tr>
             @endforeach
         </table>
+        {{$ingresos->render()}}
     </section>
 @endsection

@@ -56,8 +56,5 @@
             @endforeach
         </table>
     </section>
-    </div>
     {{$personas->render()}}
-    </div>
-    </div>
 @endsection

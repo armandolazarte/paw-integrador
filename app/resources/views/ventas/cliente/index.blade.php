@@ -50,5 +50,6 @@
                 </tr>
             @endforeach
         </table>
+        {{$personas->render()}}
     </section>
 @endsection

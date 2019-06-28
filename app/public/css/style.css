@@ -273,13 +273,10 @@ th, td {
     border: #000000 1px solid;
 }
 
-/* Define the default color for all the table rows */
 
 .hoverTable tr {
     background: #efeff0;
 }
-
-/* Define the hover highlight color for the table row */
 
 .hoverTable tr:hover {
     background-color: #ffff99;
@@ -440,3 +437,24 @@ th, td {
     padding: 20px;
     font-size: 150%;
 }
+
+/* PAGINATION */
+
+.pagination {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  display: inline;
+  margin: 4px
+}
+
+.pagination li.active {
+    background-color: #222d32;
+    color: white;
+    padding: 4px
+}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}

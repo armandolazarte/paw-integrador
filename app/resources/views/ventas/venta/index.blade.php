@@ -48,8 +48,6 @@
                 </tr>
             @endforeach
         </table>
+        {{$ventas->render()}}
     </section>
-    {{$ventas->render()}}
-    </div>
-    </div>
 @endsection

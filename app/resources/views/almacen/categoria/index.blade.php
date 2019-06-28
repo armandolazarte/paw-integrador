@@ -48,5 +48,6 @@
                 </tr>
             @endforeach
         </table>
+        {{$categorias->render()}}
     </section>
 @endsection
