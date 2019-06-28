@@ -17,13 +17,43 @@
         </div>
         <table class="table-sortable" id="table-info">
             <thead>
-            <th onclick="sortTable(0)">Fecha</th>
-            <th onclick="sortTable(1)">Proveedor</th>
-            <th onclick="sortTable(2)">Tipo Comprobante</th>
-            <th onclick="sortTable(3)">Impuesto</th>
-            <th onclick="sortTable(4)">Total</th>
-            <th onclick="sortTable(5)">Estado</th>
-            <th onclick="sortTable(6)">Opciones</th>
+            <th onclick="sortTable(0)">
+              Fecha
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(1)">
+              Proveedor
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(2)">
+              Tipo Comprobante
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(3)">
+              Impuesto
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(4)">
+              Total
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(5)">
+              Estado
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th>Opciones</th>
             </thead>
             @foreach ($ingresos as $ing)
                 <tr>

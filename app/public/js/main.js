@@ -55,8 +55,7 @@ function destroy(e, name) {
 
 function sortTable(n) {
     var table, tableElement, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    tableElement = document.getElementsByClassName("table-sortable");
-    table = tableElement[0];
+    table = document.getElementById("table-info");
 
     switching = true;
     // Set the sorting direction to ascending:
@@ -106,6 +105,17 @@ function sortTable(n) {
                 dir = "desc";
                 switching = true;
             }
+        }
+        let elementClicked = event.target;
+        if (elementClicked.classList.contains('fa')) {
+          iconElement = elementClicked;
+        } else {
+          iconElement = (elementClicked.children)[0].children[0];
+        }
+        if (dir == "asc") {
+          iconElement.classList = 'fa fa-angle-down pull-right icon-nav';
+        } else {
+          iconElement.classList = 'fa fa-angle-up pull-right icon-nav';;
         }
     }
 }

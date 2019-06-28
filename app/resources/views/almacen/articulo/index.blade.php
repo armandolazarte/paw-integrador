@@ -18,12 +18,42 @@
         </div>
         <table class="table-sortable" id="table-info">
             <thead>
-            <th onclick="sortTable(0)">Id</th>
-            <th onclick="sortTable(1)">Nombre</th>
-            <th onclick="sortTable(2)">Codigo</th>
-            <th onclick="sortTable(3)">Categoria</th>
-            <th onclick="sortTable(4)">Min. Stock</th>
-            <th onclick="sortTable(5)">Stock</th>
+            <th onclick="sortTable(0)">
+              Id
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(1)">
+              Nombre
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(2)">
+              Codigo
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(3)">
+              Categoria
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(4)">
+              Min. Stock
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(5)">
+              Stock
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
             <th>Imagen</th>
             <th>Opciones</th>
             </thead>

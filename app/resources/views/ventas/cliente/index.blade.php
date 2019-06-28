@@ -16,13 +16,43 @@
         </div>
         <table class="table-sortable" id="table-info">
             <thead>
-            <th onclick="sortTable(0)">Id</th>
-            <th onclick="sortTable(1)">Nombre</th>
-            <th onclick="sortTable(2)">Tipo de Documento</th>
-            <th onclick="sortTable(3)">Numero de Documento</th>
-            <th onclick="sortTable(4)">Telefono</th>
-            <th onclick="sortTable(5)">Email</th>
-            <th onclick="sortTable(6)">Opciones</th>
+            <th onclick="sortTable(0)">
+              Id
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(1)">
+              Nombre
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(2)">
+              Tipo de Documento
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(3)">
+              Numero de Documento
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(4)">
+              Telefono
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(5)">
+              Email
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th>Opciones</th>
             </thead>
             @foreach ($personas as $per)
                 <tr>

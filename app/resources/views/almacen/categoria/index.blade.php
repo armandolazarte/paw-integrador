@@ -20,10 +20,30 @@
         </div>
         <table class="table-sortable" id="table-info">
             <thead>
-            <th onclick="sortTable(0)">Id</th>
-            <th onclick="sortTable(1)">Nombre</th>
-            <th onclick="sortTable(2)">Descripción</th>
-            <th onclick="sortTable(3)">Opciones</th>
+            <th onclick="sortTable(0)">
+              Id
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(1)">
+              Nombre
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(2)">
+              Descripción
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(3)">
+              Opciones
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
             </thead>
             @foreach ($categorias as $cat)
                 <tr>

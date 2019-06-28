@@ -14,12 +14,37 @@
         </div>
         <table class="table-sortable" id="table-info">
             <thead>
-            <th onclick="sortTable(0)">Fecha</th>
-            <th onclick="sortTable(1)">Cliente</th>
-            <th onclick="sortTable(2)">Tipo Comprobante</th>
-            <th onclick="sortTable(3)">Total</th>
-            <th onclick="sortTable(4)">Estado</th>
-            <th onclick="sortTable(5)">Opciones</th>
+            <th onclick="sortTable(0)">
+              Fecha
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(1)">
+              Cliente
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(2)">
+              Tipo Comprobante
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(3)">
+              Total
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th onclick="sortTable(4)">
+              Estado
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
+            <th>Opciones</th>
             </thead>
             @foreach ($ventas as $ven)
                 <tr>
