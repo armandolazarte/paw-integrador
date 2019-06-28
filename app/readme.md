@@ -26,3 +26,6 @@
 9. Ejecutar: php artisan db:seed --class=GivePermissions
 10. Ejecutar: php artisan db:seed --class=admin
 11. Ejecutar el comando 'php artisan serve'
+12. Loguearse con el usuario creado:
+    1. Nombre de usuario: admin@admin.com
+    2. Password: admin 
