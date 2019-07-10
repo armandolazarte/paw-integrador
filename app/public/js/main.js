@@ -143,3 +143,30 @@ function filterTable() {
         }
     }
 }
+
+/*
+
+THUMBNAILS
+
+*/
+
+var thumbs = document.getElementsByClassName('thumbs');
+for (var i in thumbs) {
+    thumbs[i].onmouseover = function (e) {
+
+      let hover = document.createElement('div');
+      hover.id = 'thumb-hover';
+      hover.style.left = (e.clientX + 25) + 'px';
+      hover.style.top = (e.clientY - 25) + 'px';
+      hover.style.backgroundImage = 'url(' + this.src + ')';
+      document.body.appendChild(hover);
+
+    }
+
+    thumbs[i].onmouseout = function (e) {
+
+      var elem = document.getElementById('thumb-hover');
+      return elem.parentNode.removeChild(elem);
+
+    }
+}

@@ -35,7 +35,7 @@
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
         @endif
-              
+
         <label for="password" class="col-md-4 control-label">Contraseña</label>
         <input id="password" type="password" class="form-control" name="password">
 
@@ -57,9 +57,9 @@
 	</div>
 
 	<div class="form-control">
-		<input name="_token" value="{{ csrf_token()}}" type="hidden"></input>
-		<button class="btn btn-success btn-md" type="submit">Guardar</button>
-		<button class="btn btn-danger btn-md" type="reset">Cancelar</button>
+		<button class="btn btn-success btn-bg" type="submit">Guardar</button>
+		<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
+		<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>
 	</div>
 
 	{!!Form::close()!!}

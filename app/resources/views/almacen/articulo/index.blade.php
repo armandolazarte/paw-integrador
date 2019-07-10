@@ -12,8 +12,13 @@
     <section class="section-content">
     <!-- @include('almacen.articulo.search') -->
         <div class="table-filter">
-            <span class="fa fa-search search-icon"></span>
+            <span class="fa fa-filter search-icon"></span>
             <input type="text" id="filter" onkeyup="filterTable()" name="searchText" placeholder="Filtrar..."
+                   value="{{$searchText}}">
+        </div>
+        <div class="table-search">
+            <span class="fa fa-search search-icon"></span>
+            <input type="text" id="search" name="searchText" placeholder="Buscar..."
                    value="{{$searchText}}">
         </div>
         <table class="table-sortable" id="table-info">
@@ -70,8 +75,7 @@
                     <td>{{$art->minStock}}</td>
                     <td>{{$art->stock}}</td>
                     <td>
-                        <img src="{{asset('imagenes/articulos/'.$art->imagen)}}" alt="{{$art->nombre}}" height="100px"
-                             width="100px" class="img-thumbnail">
+                        <img src="{{asset('imagenes/articulos/'.$art->imagen)}}" class="thumbs" alt="{{$art->nombre}}" class="img-thumbnail">
                     </td>
 
                     <td>
@@ -101,5 +105,7 @@
         </table>
         {{$articulos->render()}}
     </section>
-    @stack('scripts')
+    @push('scripts')
+    	<script src="{{asset('js/search.js')}}"></script>
+     @endpush
 @endsection

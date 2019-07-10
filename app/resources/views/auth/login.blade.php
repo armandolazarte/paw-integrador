@@ -26,21 +26,11 @@
 
                 <input class="btn-login" type="submit" value="Log In"/>
 
-                @if ($errors->has('email'))
-                    <span class="info-box">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-                @endif
-
-                @if ($errors->has('password'))
-                    <span class="info-box">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-                @endif
-
+                  <span class="info-box">
+                        <strong>Ups! Algo anda mal. Vuelva a intentarlo!</strong>
+                  </span>
 
             </form>
-            <br>
             <a class="btn btn-link" href="{{ route('password.request') }}">
                 ¿Olvidó su contraseña?
             </a>

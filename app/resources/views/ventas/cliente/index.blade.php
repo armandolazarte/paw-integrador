@@ -10,7 +10,7 @@
 
     <section class="section-content">
         <div class="table-filter">
-        <span class="fa fa-search search-icon"></span>
+        <span class="fa fa-filter search-icon"></span>
         <input type="text" id="filter" onkeyup="filterTable()" name="searchText" placeholder="Filtrar..."
                value="{{$searchText}}">
         </div>

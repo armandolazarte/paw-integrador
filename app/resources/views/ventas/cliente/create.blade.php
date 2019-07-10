@@ -37,11 +37,12 @@
 				<option value="{{$categoria->idcategoria_persona}}">{{$categoria->nombre}}</option>
 			@endforeach
 		</select>
+	</div>
 
 		<div class="form-control">
-			<input name="_token" value="{{ csrf_token()}}" type="hidden"></input>
 			<button class="btn btn-success btn-bg" type="submit">Guardar</button>
-			<button class="btn btn-danger btn-bg" type="reset">Cancelar</button>
+			<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
+			<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>
 		</div>
 
 		{!!Form::close()!!}

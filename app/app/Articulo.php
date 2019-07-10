@@ -17,8 +17,8 @@ class Articulo extends Model
     	'descripcion',
     	'imagen',
     	'estado',
-        'minStock'
-    ]; 
+      'minStock'
+    ];
     protected $guarded =[
     ];//aca los que no queremos que se agreguen al modelo
 }

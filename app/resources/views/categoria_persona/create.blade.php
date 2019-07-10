@@ -15,8 +15,9 @@
 	</div>
 
 	<div class="form-control">
-		<button class="btn btn-success btn-md" type="submit">Guardar</button>
-		<button class="btn btn-danger btn-md" type="reset">Cancelar</button>
+		<button class="btn btn-success btn-bg" type="submit">Guardar</button>
+		<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
+		<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>
 	</div>
 
 	{!!Form::close()!!}

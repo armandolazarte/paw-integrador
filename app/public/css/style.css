@@ -305,12 +305,17 @@ th, td {
     float: right;
 }
 
-.table-filter input {
+.table-search {
+    margin: 10px 0;
+    float: left;
+}
+
+.table-filter input, .table-search input {
   padding: 1em;
   padding-left: 2.375rem;
 }
 
-.table-filter .search-icon {
+.table-filter .search-icon, .table-search .search-icon {
     position: absolute;
     z-index: 1;
     display: block;
@@ -320,6 +325,32 @@ th, td {
     text-align: center;
     pointer-events: none;
     color: #aaa;
+}
+
+/* THUMBNAIL */
+
+img.thumbs {
+  width: 50px;
+  height: auto;
+}
+#thumb-hover {
+    height: 150px;
+    width: 150px;
+    position:absolute;
+    min-height: 1px;
+    background-size: contain;
+
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
+
+    -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+       -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+        -ms-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+         -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+
+
 }
 
 
@@ -412,6 +443,12 @@ th, td {
     grid-column: controls;
     grid-row: auto;
     padding: 1em;
+}
+
+.form-control {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
 }
 
 /* INGRESOS */

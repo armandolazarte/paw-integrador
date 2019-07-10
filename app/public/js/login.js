@@ -20,19 +20,19 @@ window.onload = function () {
             })
         })
             .then((data) => {
-                console.log(data);
                 let main = document.getElementsByTagName('main')[0];
                 if (data.ok) {
-                    main.classList = login.classList
-
-
-                     = 'success';
+                    main.classList = login.classList = 'success';
                     setTimeout(function () {
                     }, 900);
                     window.location.href = data.url;
                 } else {
                     let login = document.getElementById('login');
+                    let form = document.getElementById('form-login');
                     main.classList = login.classList = 'error';
+                    let message = document.getElementsByClassName('info-box');
+                    message[0].style.visibility = 'unset';
+
                 }
             })
             .catch(function (error) {
@@ -47,6 +47,8 @@ window.onload = function () {
       let main = document.getElementsByTagName('main')[0];
       let login = document.getElementById('login');
       main.classList = login.classList = '';
+      let message = document.getElementsByClassName('info-box');
+      message[0].style.visibility = 'hidden';
     });
 
 }
