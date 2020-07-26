@@ -39,10 +39,10 @@
 				<tr>
 					<td>{{$det->articulo}}</td>
 					<td>{{$det->cantidad}}</td>
-					<td>{{$det->precio_venta}}</td>
+					<td>{{$det->precio_compra}}</td>
 					<td>{{$det->mano_obra}}</td>
 					<td>{{$det->descuento}}</td>
-					<td>{{$det->cantidad * $det->precio_venta-$det->descuento}}</td>
+					<td>{{$det->cantidad * $det->precio_compra-$det->descuento}}</td>
 				</tr>
 			@endforeach
 		</tbody>

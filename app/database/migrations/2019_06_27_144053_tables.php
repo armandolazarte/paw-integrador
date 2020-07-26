@@ -63,7 +63,7 @@ class Tables extends Migration
             $table->string('num_comprobante')->nullable();
             $table->dateTime('fecha_hora')->nullable();
             $table->decimal('total_venta',11,2)->nullable();
-            $table->decimal('impuesto',4,2)->nullable();
+            $table->decimal('impuesto',10,2)->nullable();
             $table->string('estado')->nullable();
         });
 
@@ -76,9 +76,9 @@ class Tables extends Migration
             $table->integer('idventa')->unsigned();
             $table->integer('idarticulo')->unsigned();
             $table->integer('cantidad')->nullable();
-            $table->decimal('precio_compra',4,2)->nullable();
+            $table->decimal('precio_compra',10,2)->nullable();
             $table->integer('mano_obra')->nullable();
-            $table->decimal('descuento',4,2)->nullable();
+            $table->decimal('descuento',10,2)->nullable();
         });
 
         Schema::table('detalle_venta',function($table){
@@ -95,7 +95,7 @@ class Tables extends Migration
             $table->string('serie_comprobante')->nullable();
             $table->string('num_comprobante')->nullable();
             $table->dateTime('fecha_hora')->nullable();
-            $table->decimal('impuesto',4,2)->nullable();
+            $table->decimal('impuesto',10,2)->nullable();
             $table->string('estado')->nullable();
         });
 
@@ -108,8 +108,8 @@ class Tables extends Migration
             $table->integer('idingreso')->unsigned();
             $table->integer('idarticulo')->unsigned();
             $table->integer('cantidad')->nullable();
-            $table->decimal('precio_compra',4,2)->nullable();
-            $table->decimal('precio_venta',4,2)->nullable();
+            $table->decimal('precio_compra',10,2)->nullable();
+            $table->decimal('precio_venta',10,2)->nullable();
         });
 
         Schema::table('detalle_ingreso',function($table){

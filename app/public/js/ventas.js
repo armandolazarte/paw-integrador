@@ -21,6 +21,7 @@ function chargeValues(){
     let endpoint = url + '/almacen/articulo/' + id;
     request.open('Get', endpoint);
     request.send();
+    console.log(request);
     request.onreadystatechange = function() {
       if(request.readyState === 4) {
         if(request.status === 200) {

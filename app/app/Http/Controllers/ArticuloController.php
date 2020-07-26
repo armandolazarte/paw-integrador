@@ -73,7 +73,7 @@ class ArticuloController extends Controller
             ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
             ->select('art.idarticulo','art.nombre','art.stock',DB::raw('max(di.precio_venta) as precio_promedio'))
             ->where('art.idarticulo','=',$id)
-            ->groupBy('art.idarticulo')
+            ->groupBy('art.idarticulo','art.nombre','art.stock')
             ->get()
         ;
         return $articulo;
@@ -109,6 +109,10 @@ class ArticuloController extends Controller
     	$articulo->Estado='Inactivo';
     	$articulo->update();
     	return Redirect::to('almacen/articulo');
+    }
+
+    public function masVendido(){
+        $producto=Articulo::masVendido();
     }
 
 }
