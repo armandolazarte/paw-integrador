@@ -14,9 +14,11 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::resource('almacen/categoria','CategoriaController'); //cuando el usuario existe al sitio almacen/categoria hace un ligado con categoriacontroller, un crud
+Route::resource('almacen/categoria','CategoriaController');
+//cuando el usuario existe al sitio almacen/categoria hace un ligado con categoriacontroller, un crud
 
-Route::resource('almacen/articulo','ArticuloController'); //cuando el usuario existe al sitio almacen/articulo hace un ligado con ArticuloControlelr, un crud
+Route::resource('almacen/articulo','ArticuloController');
+//cuando el usuario existe al sitio almacen/articulo hace un ligado con ArticuloControlelr, un crud
 Route::resource('ventas/cliente','ClienteController');
 Route::resource('compras/proveedor','ProveedorController');
 Route::resource('compras/ingreso','IngresoController');
@@ -33,3 +35,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/{slug?}', 'HomeController@index');
 Route::patch('/seguridad/usuarios/changeRole','UsuarioController@changeRole')->name('usuarios.changeRole');
 //Route::get('almacen/articulo/eliminar/{id}','ArticuloController@changeState');
+
+Route::group(['prefix' => '/notificaciones'], function () {
+    Route::get('/all','NotificacionController@getAll')->name('notificaciones_all');
+    Route::get('/read/{id}','NotificacionController@read')->name('notificaciones_read');
+});
