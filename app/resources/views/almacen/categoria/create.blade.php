@@ -16,12 +16,17 @@
 <section class="page-form">
 	{!!Form::open((array('url' => 'almacen/categoria', 'class'=> 'form form-create', 'method'=>'POST', 'autocomplete'=>'off')))!!}
 	{{Form::token()}}
+	
 	<div class="form-group">
-		<label for="nombre">Nombre</label>
-		<input type="text" name="nombre" placeholder="Nombre...">
+		<p> 
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" placeholder="Nombre...">
+		</p>
 
-		<label for="descripcion">Descripcion</label>
-		<input type="text" name="descripcion" placeholder="Descripcion...">
+		<p>
+			<label for="descripcion">Descripcion</label>
+			<input type="text" name="descripcion" placeholder="Descripcion...">
+		</p>
 
 	</div>
 

@@ -17,12 +17,17 @@
 		{!!Form::model($categoria,['method'=>'PATCH', 'class'=> 'form form-edit', 'route'=>['categoria.update',$categoria->idcategoria]])!!}
 		{{Form::token()}}
 			<div class="form-group">
-				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" class="form-control" value="{{$categoria->nombre}}" placeholder="Nombre...">
 
+			<p> 
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" class="form-control" value="{{$categoria->nombre}}" placeholder="Nombre...">
+			</p>
+
+			<p>
 				<label for="descripcion">Descripcion</label>
 				<input type="text" name="descripcion" class="form-control" value="{{$categoria->descripcion}}" placeholder="Descripcion...">
-
+			</p>
+			
 			</div>
 
 			<div class="form-control">

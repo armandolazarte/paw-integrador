@@ -14,13 +14,13 @@ class CreateTrigger extends Migration
     public function up()
     {
         DB::unprepared('CREATE TRIGGER `tr_updStockIngreso` AFTER INSERT ON `detalle_ingreso` FOR EACH ROW BEGIN
-    	UPDATE articulo SET stock=stock+NEW.cantidad
-        WHERE articulo.idarticulo=NEW.idarticulo;
-END');
+    	    UPDATE articulo SET stock=stock+NEW.cantidad
+            WHERE articulo.idarticulo=NEW.idarticulo;
+        END');
         DB::unprepared('CREATE TRIGGER `tr_updStockVenta` AFTER INSERT ON `detalle_venta` FOR EACH ROW BEGIN
-    	UPDATE articulo SET stock = stock - NEW.cantidad
-        where articulo.idarticulo = NEW.idarticulo;
-END');
+    	    UPDATE articulo SET stock = stock - NEW.cantidad
+            where articulo.idarticulo = NEW.idarticulo;
+        END');
     }
 
     /**

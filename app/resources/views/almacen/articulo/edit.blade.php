@@ -17,9 +17,13 @@
         {!!Form::model($articulo,['method'=>'PATCH', 'class'=> 'form form-edit', 'route'=>['articulo.update',$articulo->idarticulo], 'files'=>'true'])!!}
         {{Form::token()}}
         <div class="form-group">
+
+            <p> 
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" required value="{{$articulo->nombre}}">
+            </p>
 
+            <p> 
             <label>Categoria</label>
             <select name="idcategoria">
                 @foreach ($categorias as $cat)
@@ -30,25 +34,38 @@
                     @endif
                 @endforeach
             </select>
+            </p>
 
+            <p> 
             <label for="codigo">Codigo</label>
             <input type="text" name="codigo" required value="{{$articulo->codigo}}">
+            </p>
 
+            <p> 
             <label for="stock">Stock</label>
             <input type="number" name="stock" required value="{{$articulo->stock}}">
+            </p>
 
+            <p> 
             <label for="minStock">Stock Mínimo</label>
             <input type="number" name="minStock" required value="{{$articulo->minStock}}">
+            </p>
 
+            <p> 
             <label for="descripcion">Descripcion</label>
             <input type="text" name="descripcion" value="{{$articulo->descripcion}}" class="form-control"
                    placeholder="Descripcion del articulo...">
+            </p>
 
+            <p> 
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen">
             @if (($articulo->imagen)!="")
-                <img src="{{asset('imagenes/articulos/'.$articulo->imagen)}}" height="300px" width="300px">
+                <figure>
+                    <img src="{{asset('imagenes/articulos/'.$articulo->imagen)}}" height="250px" width="250px">
+                </figure>
             @endif
+            </p>
 
         </div>
 

@@ -10,40 +10,59 @@
 	{{Form::token()}}
 
 	<div class="form-group">
-		<label for="proveedor">Proveedor</label>
-		<select name="idproveedor" id="idproveedor" class="form-control selectpicker" data-live-search="true">
-			@foreach($personas as $persona)
-			<option value="{{$persona->idpersona}}">{{$persona->nombre}}</option>
-			@endforeach
-		</select>
 
-		<label>Tipo Comprobante</label>
-		<select name="tipo_comprobante" class="form-control">
-				<option value="Boleta">Boleta</option>
-				<option value="Factura">Factura</option>
-				<option value="Ticket">Ticket</option>
-		</select>
+		<p>
+			<label for="proveedor">Proveedor</label>
+			<select name="idproveedor" id="idproveedor" class="form-control selectpicker">
+				@foreach($personas as $persona)
+				<option value="{{$persona->idpersona}}">{{$persona->nombre}}</option>
+				@endforeach
+			</select>
+		</p>
 
-		<label for="serie_comprobante">Serie Comprobante</label>
-		<input type="text" name="serie_comprobante" value="{{old('serie_comprobante')}}" placeholder="Serie comprobante...">
+		<p>
+			<label>Tipo Comprobante</label>
+			<select name="tipo_comprobante" class="form-control">
+					<option value="Boleta">Boleta</option>
+					<option value="Factura">Factura</option>
+					<option value="Ticket">Ticket</option>
+			</select>
+		</p>
 
-		<label for="num_comprobante">Numero Comprobante</label>
-		<input type="text" name="num_comprobante" required value="{{old('num_comprobante')}}" placeholder="Numero comprobante...">
+		<p>
+			<label for="serie_comprobante">Serie Comprobante</label>
+			<input type="text" name="serie_comprobante" value="{{old('serie_comprobante')}}" placeholder="Serie comprobante...">
+		</p>
 
-		<label>Articulo</label>
-		<input type="text" name="name" id="articulo" list="search_list" placeholder="Buscar...">
-		<input type="hidden" name="pidarticulo" id="pidarticulo">
-		<datalist id="search_list">
-		</datalist>
+		<p>
+			<label for="num_comprobante">Numero Comprobante</label>
+			<input type="text" name="num_comprobante" required value="{{old('num_comprobante')}}" placeholder="Numero comprobante...">
+		</p>
 
-		<label for="cantidad">Cantidad</label>
-		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cantidad">
+		<p>
+			<label>Articulo</label>
+			<span class="autocomplete">
+				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/almacen/articulo" data-inputvalue="pidarticulo" />
+			</span>
+			<input type="hidden" name="pidarticulo" id="pidarticulo">
 
-		<label for="precio_compra">Precio Compra</label>
-		<input type="number" name="pprecio_compra" id="pprecio_compra" placeholder="P. Compra">
 
-		<label for="precio_venta">Precio Venta</label>
-		<input type="number" name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta">
+		</p>
+
+		<p>
+			<label for="cantidad">Cantidad</label>
+			<input type="number" name="pcantidad" id="pcantidad" placeholder="Cantidad">
+		</p>
+
+		<p>
+			<label for="precio_compra">Precio Compra</label>
+			<input type="number" name="pprecio_compra" id="pprecio_compra" placeholder="P. Compra">
+		</p>
+
+		<p>
+			<label for="precio_venta">Precio Venta</label>
+			<input type="number" name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta">
+		</p>
 
 		<label for="bt_add"></label><br>
 		<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg">Agregar</button>
