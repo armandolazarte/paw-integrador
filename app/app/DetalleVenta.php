@@ -14,7 +14,6 @@ class DetalleVenta extends Model
     	'idarticulo',
     	'cantidad',
       'precio_venta',
-      'mano_obra',
     	'descuento'
     ];
     protected $guarded =[

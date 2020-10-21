@@ -18,16 +18,9 @@ class ArticuloController extends Controller
     }
     public function index(Request $request){
     	if ($request){ //si request existe voy a obteneer todos los registros categoria de la db
-    		$query=trim($request->get('searchText'));	//determina cual es el texto de busqueda para filtrar todas las categorias. searchText porque va a existir un objeto en un formulario listado donde se van a ingresar las categorias que quiero mostrar
-    		$articulos=DB::table('articulo as a')
-    		->join('categoria as c','a.idcategoria','=','c.idcategoria')
-    		->select('a.minStock','a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
-    		->where ('a.nombre','LIKE','%'.$query.'%')//busca por nombre
-    		->orWhere ('a.codigo','LIKE','%'.$query.'%')//o busca por codigo
-            ->where('a.estado','=','Activo')
-    		->orderBy('a.idarticulo','desc')//ordena de manera descendente
-    		->paginate(10); //pagina de a 7 registros
-    		;
+				$query = trim($request->get('searchText'));	//determina cual es el texto de busqueda para filtrar todas las categorias. searchText porque va a existir un objeto en un formulario listado donde se van a ingresar las categorias que quiero mostrar
+				
+				$articulos = Articulo::getAll($query);
 
         if ($request->has('json')) {
           return $articulos;

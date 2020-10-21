@@ -15,10 +15,11 @@ class Venta extends Model
     	'serie_comprobante',
     	'num_comprobante',
     	'fecha_hora',
-		'impuesto',
+			'impuesto',
     	'total_venta',
     	'estado'
-    ]; 
+		]; 
+		
     protected $guarded =[
     ];//aca los que no queremos que se agreguen al modelo
 

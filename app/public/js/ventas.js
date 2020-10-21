@@ -4,7 +4,10 @@ window.onload = function() {
     addProduct();
   });
 
+  console.log("HOLA")
+
   document.getElementById('pidarticulo').addEventListener('change', function(){
+    console.log("Hola")
     chargeValues();
   });
 
@@ -38,13 +41,9 @@ function chargeValues(){
 
   function addProduct(){
 
-    let product = document.getElementById('pidarticulo');
-    let datosArticulo=product.value.split('_');
-    let idarticulo=datosArticulo[0];
-
-    articulo = product.options[product.selectedIndex].text;
+    let idarticulo=document.getElementById('pidarticulo').value;
+    articulo = document.getElementById('inputText').value;
     cantidad = document.getElementById("pcantidad").value;
-    mano_obra = document.getElementById("pmano_obra").value;
     descuento = document.getElementById("pdescuento").value;
     precio_venta = document.getElementById("pprecio_venta").value;
     stock= document.getElementById("pstock").value;
@@ -52,10 +51,17 @@ function chargeValues(){
     if(idarticulo !="" && cantidad !="" && cantidad>0 && descuento !="" && precio_venta !=""){
       if(parseInt(stock) > parseInt(cantidad)){
 
-        subtotal[cont]=(cantidad*precio_venta+(mano_obra-descuento));
+        subtotal[cont]=(cantidad*precio_venta) - descuento;
         total=total+subtotal[cont];
 
-        var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-alert" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+'"><td><input type="number" name="mano_obra[]" value="'+mano_obra+'"><td><input type="number" name="descuento[]" value="'+descuento+'"><td>'+subtotal[cont]+'</td></tr>';
+        var fila='<tr class="selected" id="fila'+cont+'"> \
+                    <td><button type="button" class="btn btn-alert" onclick="eliminar('+cont+');">X</button></td> \
+                    <td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td> \
+                    <td><input type="number" name="cantidad[]" value="'+cantidad+'"></td> \
+                    <td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td> \
+                    <td><input type="number" name="descuento[]" value="'+descuento+'"></td> \
+                    <td>'+subtotal[cont]+'</td> \
+                  </tr>';
         limpiar();
         document.getElementById("total").innerHTML = "$/."+ total;
         document.getElementById("total_venta").value = total;
@@ -79,7 +85,6 @@ function chargeValues(){
     document.getElementById("pcantidad").value = '';
     document.getElementById("pdescuento").value = '';
     document.getElementById("pprecio_venta").value = '';
-    document.getElementById("pmano_obra").value = '';
   }
 
   function evaluar(){

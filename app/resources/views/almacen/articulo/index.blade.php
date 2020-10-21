@@ -59,6 +59,12 @@
                 <i class="fa fa-angle-down pull-right icon-nav"></i>
               </span>
             </th>
+            <th onclick="sortTable(6)">
+              $
+              <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right icon-nav"></i>
+              </span>
+            </th>
             <th>Imagen</th>
             <th>Opciones</th>
             </thead>
@@ -74,6 +80,7 @@
                     <td>{{$art->categoria}}</td>
                     <td>{{$art->minStock}}</td>
                     <td>{{$art->stock}}</td>
+                    <td>{{$art->precio}}</td>
                     <td>
                         <img src="{{asset('imagenes/articulos/'.$art->imagen)}}" class="thumbs" alt="{{$art->nombre}}" class="img-thumbnail">
                     </td>

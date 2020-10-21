@@ -77,7 +77,6 @@ class Tables extends Migration
             $table->integer('idarticulo')->unsigned();
             $table->integer('cantidad')->nullable();
             $table->decimal('precio_compra',4,2)->nullable();
-            $table->integer('mano_obra')->nullable();
             $table->decimal('descuento',4,2)->nullable();
         });
 

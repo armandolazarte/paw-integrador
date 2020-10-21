@@ -41,22 +41,26 @@ function predictiveList(inp, endpoint, inputValue) {
                 data.forEach(function(item) {
                     // // Create a new <option> element.
                     b = document.createElement("DIV");
-                    /*make the matching letters bold:*/
+                    
                     b.innerHTML = "<strong>" + item.nombre.substr(0, val.length) + "</strong>";
                     b.innerHTML += item.nombre.substr(val.length);
-                    /*insert a input field that will hold the current array item's value:*/
+          
                     b.innerHTML += "<input type='hidden' value='" + item.idarticulo + "' data-text='" + item.nombre + "'>";
-                    /*execute a function when someone clicks on the item value (DIV element):*/
+          
                     b.addEventListener("click", function(e) {
-                        /*insert the value for the autocomplete text field:*/
+                        /* Inserto el value del autocomplete en el text field */
                         let inputClicked = this.getElementsByTagName("input")[0];
-                        console.log(inputValue)
+                        /* Agarro el input hidden */
                         let inputHiddenValue = document.getElementById(inputValue);
+                        /* Le inserto el value */
                         inputHiddenValue.value = inputClicked.value;
+                        inputHiddenValue.dispatchEvent(new Event('change'));
+                        /* Al input que muestra el texto*/
                         inp.value = inputClicked.dataset.text;
                         
                         /* Cierro todas las listas abiertas */
                         closeAllLists();
+
                     });
                     list.appendChild(b);
                 });

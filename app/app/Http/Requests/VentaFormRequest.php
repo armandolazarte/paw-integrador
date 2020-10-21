@@ -31,7 +31,6 @@ class VentaFormRequest extends Request
             'cantidad'=>'required',
             'precio_venta'=>'required',
             'descuento'=>'required',
-            'mano_obra'=>'required',
             'total_venta'=>'required'
         ];
     }

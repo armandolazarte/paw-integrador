@@ -45,13 +45,11 @@
 				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/almacen/articulo" data-inputvalue="pidarticulo" />
 			</span>
 			<input type="hidden" name="pidarticulo" id="pidarticulo">
-
-
 		</p>
 
 		<p>
 			<label for="cantidad">Cantidad</label>
-			<input type="number" name="pcantidad" id="pcantidad" placeholder="Cantidad">
+			<input type="number" name="pcantidad" id="pcantidad" placeholder="Cantidad"  value="1">
 		</p>
 
 		<p>
@@ -64,8 +62,7 @@
 			<input type="number" name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta">
 		</p>
 
-		<label for="bt_add"></label><br>
-		<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg">Agregar</button>
+		<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg btn-fullw">Agregar Item <i class="fa fa-plus icon-menu"></i></button>
 	</div>
 
 	<table id="detalles" class="table">
@@ -89,7 +86,7 @@
 		</tfoot>
 	</table>
 
-	<div class="form-control">
+	<div class="form-control-2col">
 		<input name="_token" value="{{ csrf_token()}}" type="hidden"></input>
 		<button class="btn btn-success btn-bg" id="guardar" type="submit">Guardar</button>
 		<button class="btn btn-danger btn-bg" type="reset">Cancelar</button>

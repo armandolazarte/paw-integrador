@@ -33,7 +33,7 @@ class VentaController extends Controller
 
       $detalles=DB::table('detalle_venta as d')
                ->join('articulo as a','d.idarticulo','=','a.idarticulo')
-               ->select('a.nombre as articulo','d.cantidad','d.descuento','d.precio_venta','d.mano_obra')
+               ->select('a.nombre as articulo','d.cantidad','d.descuento','d.precio_venta')
                ->where('d.idventa','=',$id)
                ->get();
         $tabla='';
@@ -45,7 +45,6 @@ class VentaController extends Controller
                     <td>'.$det->articulo.'</td>
                     <td>'.$det->cantidad.'</td>
                     <td>'.$det->precio_venta.'</td>
-                    <td>'.$det->mano_obra.'</td>
                     <td>'.$det->descuento.'</td>
                     <td>'.$subtotal.'</td>
                   </tr>';
@@ -250,6 +249,7 @@ class VentaController extends Controller
 
         }
     }
+
     public function create()
     {
      $personas=DB::table('persona')->where('tipo_persona','=','Cliente')->get();
@@ -290,7 +290,6 @@ class VentaController extends Controller
             $idarticulo =$request->get('idarticulo');
             $cantidad =$request->get('cantidad');
             $descuento =$request->get('descuento');
-            $mano_obra =$request->get('mano_obra');
             $precio_venta =$request->get('precio_venta');
             $cont = 0;
 
@@ -302,7 +301,6 @@ class VentaController extends Controller
               $detalle->idarticulo= $idarticulo[$cont];
               $detalle->cantidad= $cantidad[$cont];
               $detalle->descuento= $descuento[$cont];
-              $detalle->mano_obra= $mano_obra[$cont];
               $detalle->precio_venta= $precio_venta[$cont];
               $detalle->save();
               $cont=$cont+1;
@@ -329,7 +327,7 @@ class VentaController extends Controller
 
         $detalles=DB::table('detalle_venta as d')
                  ->join('articulo as a','d.idarticulo','=','a.idarticulo')
-                 ->select('a.nombre as articulo','d.cantidad','d.descuento','d.precio_venta','d.mano_obra')
+                 ->select('a.nombre as articulo','d.cantidad','d.descuento','d.precio_venta')
                  ->where('d.idventa','=',$id)
                  ->get();
         return view("ventas.venta.show",["venta"=>$venta,"detalles"=>$detalles]);

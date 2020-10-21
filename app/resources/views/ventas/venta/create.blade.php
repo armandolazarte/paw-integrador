@@ -9,46 +9,58 @@
 	{!!Form::open((array('url' => 'ventas/venta', 'method'=>'POST', 'autocomplete'=>'off')))!!}
 	{{Form::token()}}
 	<div class="form-group">
+
+	<p>
 		<label for="proveedor">Cliente</label>
-		<select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true">
+		<select name="idcliente" id="idcliente" class="form-control">
 			@foreach($personas as $persona)
 			<option value="{{$persona->idpersona}}">{{$persona->nombre}}</option>
 			@endforeach
 		</select>
+	</p>
 
+	<p>
 		<label for="tipo_comprobante" class="control-label">Tipo de Comprobante: </label>
 		<input type="text" class="form-control" readonly="" id="tipo_comprobante" name="tipo_comprobante" value="Remito">
+	</p>
 
+	<p>
 		<label for="num_comprobante">Numero de Comprobante</label>
 		<input type="text" name="num_comprobante" id="num_comprobante" readonly="" value="{{$num_comprobante}}" class="form-control">
+	</p>
 
-		<label>Articulo</label>
-		<select name="pidarticulo" class="form-control selectpicker" id="pidarticulo" data-live-search="true">
-				<option value="">Seleccione</option>
-			@foreach($articulos as $articulo)
-				<option value="{{$articulo->idarticulo}}">{{$articulo->articulo}}</option>
-			@endforeach
-		</select>
+	<p>
+			<label>Articulo</label>
+			<span class="autocomplete">
+				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/almacen/articulo" data-inputvalue="pidarticulo" />
+			</span>
+			<input type="hidden" name="pidarticulo" id="pidarticulo">
+	</p>
 
+
+	<p>
 		<label for="cantidad">Cant.</label>
-		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cant">
+		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cant"  value="1">
+	</p>
 
+	<p>
 		<label for="cantidad">Stock</label>
-		<input type="number" disabled name="pstock" id="pstock" placeholder="Stock">
+		<input type="number" disabled name="pstock" id="pstock" placeholder="Stock" readOnly>
+	</p>
 
+	<p>
 		<label for="precio_venta">Precio Venta</label>
-		<input type="number" disabled name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta">
+		<input type="number" disabled name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta" readOnly>
+	</p>
 
-		<label for="mano_obra">Mano de Obra</label>
-		<input type="number" name="pmano_obra" id="pmano_obra" placeholder="Mano de Obra...">
+	<p>
+		<label for="descuento">Descuento ($)</label>
+		<input type="number" name="pdescuento" id="pdescuento" placeholder="Descuento..."  value="0">
+	</p>
 
-		<label for="descuento">Descuento</label>
-		<input type="number" name="pdescuento" id="pdescuento" placeholder="P. Compra">
+	<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg btn-fullw">Agregar Item <i class="fa fa-plus icon-menu"></i></button>
 
-		</div>
-		<div class="form-control">
-			<button type="button" id="bt_add" class="btn btn-success btn-bg">Agregar</button>
-		</div>
+	</div>
 
 		<table id="detalles" class="table">
 			<thead>
@@ -56,13 +68,11 @@
 				<th>Articulo</th>
 				<th>Cantidad</th>
 				<th>Precio Venta</th>
-				<th>Mano de Obra</th>
 				<th>Descuento</th>
 				<th>Subtotal</th>
 			</thead>
 			<tfoot>
 				<th>TOTAL</th>
-				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -73,7 +83,7 @@
 
 			</tbody>
 		</table>
-		<div class="form-control">
+		<div class="form-control-2col">
 			<input name="_token" value="{{ csrf_token()}}" type="hidden"></input>
 			<button class="btn btn-success btn-bg" id="guardar" type="submit">Guardar</button>
 			<button class="btn btn-danger btn-bg" type="reset">Cancelar</button>
@@ -88,4 +98,6 @@
 
 @push('scripts')
 	<script src="{{asset('js/ventas.js')}}"></script>
+	<script src="{{asset('js/predictive.js')}}"></script>
  @endpush
+ 

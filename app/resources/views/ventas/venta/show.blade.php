@@ -22,7 +22,6 @@
 			<th>Articulo</th>
 			<th>Cantidad</th>
 			<th>Precio Venta</th>
-			<th>Mano de Obra</th>
 			<th>Descuento</th>
 			<th>Subtotal</th>
 		</thead>
@@ -40,7 +39,6 @@
 					<td>{{$det->articulo}}</td>
 					<td>{{$det->cantidad}}</td>
 					<td>{{$det->precio_venta}}</td>
-					<td>{{$det->mano_obra}}</td>
 					<td>{{$det->descuento}}</td>
 					<td>{{$det->cantidad * $det->precio_venta-$det->descuento}}</td>
 				</tr>
