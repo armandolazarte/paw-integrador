@@ -13,7 +13,7 @@ window.onload = function() {
   function agregar(){
     let art = document.getElementById("pidarticulo");
     let idarticulo = art.value;
-    let articulo = document.getElementById("articulo").value;
+    let articulo = document.getElementsByName("articulo")[0].value;
     let cantidad  = document.getElementById("pcantidad").value;
     let precio_compra = document.getElementById("pprecio_compra").value;
     let precio_venta = document.getElementById("pprecio_venta").value;
@@ -39,6 +39,8 @@ window.onload = function() {
     document.getElementById("pcantidad").value = '';
     document.getElementById("pprecio_compra").value = '';
     document.getElementById("pprecio_venta").value = '';
+    document.getElementsByName("articulo")[0].value = '';
+    document.getElementById("pidarticulo").value = '';
   }
 
   function evaluar(){

@@ -28,7 +28,7 @@
             <li class="sidenav__list-item">
                 <a href="#" class="dropdown">
                     <i class="fa fa-money icon-menu"></i>
-                    <span class="title">Entradas</span>
+                    <span class="title">Stock</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right icon-nav"></i>
                     </span>

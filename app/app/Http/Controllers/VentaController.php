@@ -39,7 +39,7 @@ class VentaController extends Controller
 
         $detalles = DB::table('detalle_venta as d')
             ->join('articulo as a', 'd.idarticulo', '=', 'a.idarticulo')
-            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra', 'd.mano_obra')
+            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra')
             ->where('d.idventa', '=', $id)
             ->get();
         $total = 0;
@@ -127,7 +127,6 @@ class VentaController extends Controller
             $idarticulo = $request->get('idarticulo');
             $cantidad = $request->get('cantidad');
             $descuento = $request->get('descuento');
-            $mano_obra = $request->get('mano_obra');
             $precio_venta = $request->get('precio_venta');
             $cont = 0;
 
@@ -137,7 +136,6 @@ class VentaController extends Controller
                 $detalle->idarticulo = $idarticulo[$cont];
                 $detalle->cantidad = $cantidad[$cont];
                 $detalle->descuento = $descuento[$cont];
-                $detalle->mano_obra = $mano_obra[$cont];
                 $detalle->precio_compra = $precio_venta[$cont];
                 $detalle->save();
                 $cont = $cont + 1;
@@ -174,7 +172,7 @@ class VentaController extends Controller
 
         $detalles = DB::table('detalle_venta as d')
             ->join('articulo as a', 'd.idarticulo', '=', 'a.idarticulo')
-            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra', 'd.mano_obra')
+            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra')
             ->where('d.idventa', '=', $id)
             ->get();
         return view("ventas.venta.show", ["venta" => $venta, "detalles" => $detalles]);

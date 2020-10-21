@@ -18,31 +18,44 @@
 		{{Form::token()}}
 
 		<div class="form-group">
-			<label for="nombre">Nombre</label>
-			<input type="text" name="nombre" required value="{{old('nombre')}}" placeholder="Nombre...">
+			
+			<p> 
+				<label for="nombre">Nombre</label>
+				<input type="text" name="nombre" placeholder="Nombre...">
+			</p>
 
-			<label>Categoria</label>
-			<select name="idcategoria" class="form-control selectpicker" data-live-search="true" >
-				@foreach ($categorias as $cat)
-					<option value="{{$cat->idcategoria}}">{{$cat->nombre}} </option>
-				@endforeach
-			</select>
+			<p> 
+				<label>Categoria</label>
+				<select name="idcategoria" class="form-control selectpicker" data-live-search="true" >
+					@foreach ($categorias as $cat)
+						<option value="{{$cat->idcategoria}}">{{$cat->nombre}} </option>
+					@endforeach
+				</select>
+			</p>
 
-			<label for="codigo">Codigo</label>
-			<input type="text" name="codigo" required value="{{old('codigo')}}" placeholder="Codigo del articulo...">
+			<p> 
+				<label for="codigo">Codigo</label>
+				<input type="text" name="codigo" required value="{{old('codigo')}}" placeholder="Codigo del articulo...">
+			</p>
 
-			<label for="minStock">Stock Mínimo</label>
-			<input type="number" min="0" name="minStock" required value="{{old('minStock')}}" placeholder="Stock Mínimo...">
+			<p> 
+				<label for="minStock">Stock Mínimo</label>
+				<input type="number" min="0" name="minStock" required value="{{old('minStock')}}" placeholder="Stock Mínimo...">
+			</p>
 
-			<label for="descripcion">Descripcion</label>
-			<input type="text" name="descripcion" value="{{old('descripcion')}}" placeholder="Descripcion del articulo...">
+			<p> 
+				<label for="descripcion">Descripcion</label>
+				<input type="text" name="descripcion" value="{{old('descripcion')}}" placeholder="Descripcion del articulo...">
+			</p>
 
-			<label for="imagen">Imagen</label>
-			<input type="file" name="imagen"  >
+			<p> 
+				<label for="imagen">Imagen</label>
+				<input type="file" name="imagen"  >
+			</p>
 
 		</div>
 
-		<div class="form-control">
+		<div class="form-control-3col">
 			<button class="btn btn-success btn-bg" type="submit">Guardar</button>
 			<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
 			<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>

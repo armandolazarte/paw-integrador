@@ -9,27 +9,39 @@
 	{!!Form::open((array('url' => 'compras/proveedor', 'method'=>'POST', 'autocomplete'=>'off')))!!}
 	{{Form::token()}}
 	<div class="form-group">
-		<label for="nombre">Nombre</label>
-		<input type="text" name="nombre" required value="{{old('nombre')}}" placeholder="Nombre...">
+		<p> 
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" required value="{{old('nombre')}}" placeholder="Nombre...">
+		</p> 
 
-		<label for="direccion">Direccion</label>
-		<input type="text" name="direccion" required value="{{old('direccion')}}" placeholder="Direccion...">
+		<p> 
+			<label for="direccion">Direccion</label>
+			<input type="text" name="direccion" required value="{{old('direccion')}}" placeholder="Direccion...">
+		</p> 
 
-		<label>Documento</label>
-		<select name="tipo_documento" class="form-control">
-				<option value="DNI">DNI</option>
-				<option value="CUIT">CUIT</option>
-				<option value="PAS">PAS</option>
-		</select>
+		<p> 
+			<label>Documento</label>
+			<select name="tipo_documento" class="form-control">
+					<option value="DNI">DNI</option>
+					<option value="CUIT">CUIT</option>
+					<option value="PAS">PAS</option>
+			</select>
+		</p> 
 
-		<label for="num_documento">Numero Documento</label>
-		<input type="text" name="num_documento" value="{{old('num_documento')}}" placeholder="Numero de Documento...">
+		<p> 
+			<label for="num_documento">Numero Documento</label>
+			<input type="text" name="num_documento" value="{{old('num_documento')}}" placeholder="Numero de Documento...">
+		</p> 
 
-		<label for="telefono">Telefono</label>
-		<input type="text" name="telefono" value="{{old('telefono')}}" placeholder="Numero de telefono...">
+		<p> 
+			<label for="telefono">Telefono</label>
+			<input type="text" name="telefono" value="{{old('telefono')}}" placeholder="Numero de telefono...">
+		</p> 
 
-		<label for="email">Email</label>
-		<input type="text" name="email" value="{{old('email')}}" placeholder="Email...">
+		<p> 
+			<label for="email">Email</label>
+			<input type="text" name="email" value="{{old('email')}}" placeholder="Email...">
+		</p> 
 
 	</div>
 

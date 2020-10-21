@@ -143,7 +143,6 @@ CREATE TABLE `detalle_venta` (
   `idarticulo` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `precio_venta` decimal(11,2) NOT NULL,
-  `mano_obra` int(100) NOT NULL,
   `descuento` decimal(11,2) NOT NULL,
   PRIMARY KEY (`iddetalle_venta`),
   KEY `fk_detalle_venta_articulo_idx` (`idarticulo`),
