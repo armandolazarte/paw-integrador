@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\NotificacionAdmin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\NotificacionAdmin;
 
-class NofitificacionController extends Controller
+
+class NotificacionController extends Controller
 {
     protected $admin;
 

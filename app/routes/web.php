@@ -30,10 +30,5 @@ Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/{slug?}', 'HomeController@index');
-Route::patch('/seguridad/usuarios/changeRole', 'UsuarioController@changeRole')->name('usuarios.changeRole');
+Route::patch('/seguridad/usuarios/changeRole','UsuarioController@changeRole')->name('usuarios.changeRole');
 //Route::get('almacen/articulo/eliminar/{id}','ArticuloController@changeState');
-
-Route::group(['prefix' => '/notificaciones'], function () {
-    Route::get('/all', 'NotificacionController@getAll')->name('notificaciones_all');
-    Route::get('/read/{id}', 'NotificacionController@read')->name('notificaciones_read');
-});

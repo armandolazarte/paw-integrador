@@ -14,9 +14,9 @@
       @include('partials.main')
       @include('partials.footer')
       @stack('scripts')
-      <script src="{{asset('js/main.js')}}"></script>
       <script>
         var url = "{{  url('/')}}";
       </script>
+      <script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>

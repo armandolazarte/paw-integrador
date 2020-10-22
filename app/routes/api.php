@@ -17,4 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('search/{table}/{description}', 'GeneralController@search')->name('general_search');
+Route::group(['namespace' => 'Api'], function () {
+
+    Route::get('articulos', 'ArticuloController@search')->name('general_search');
+
+    Route::group(['prefix' => '/notificaciones'], function () {
+        Route::get('/all','NotificacionController@getAll')->name('notificaciones_all');
+        Route::get('/read/{id}','NotificacionController@read')->name('notificaciones_read');
+    });
+
+});
+

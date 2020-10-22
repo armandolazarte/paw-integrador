@@ -22,6 +22,39 @@ for (var i in dropdown) {
     }
 }
 
+/* NOTIFICATIONS */
+
+window.hinterXHR = new XMLHttpRequest();
+
+// Aborto request
+window.hinterXHR.abort();
+
+window.hinterXHR.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+        var response = JSON.parse( this.response );
+
+        data = response.data
+
+    }
+};
+let url_notifications = url + '/api/notificaciones/all';
+
+window.hinterXHR.open("GET", url_notifications, true);
+window.hinterXHR.send()
+
+var notification_button = document.getElementById('notification-button');
+    notification_button.onclick = function (e) {
+        e.preventDefault();
+        var submenu = this.nextElementSibling;
+        if (submenu.classList.contains('open')) {
+            submenu.classList.remove('open');
+        } else {
+            submenu.classList.add('open');
+        }
+    }
+
+
 /* STICKY BUTTON */
 
 var sticky = document.getElementById('sticky-menu');
