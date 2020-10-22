@@ -22,10 +22,7 @@ class UsuarioController extends Controller
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            $usuarios = DB::table('users')->where('name', 'LIKE', '%' . $query . '%')
-                ->orderBy('id', 'desc')
-                ->paginate(7);
-            return view('seguridad.usuario.index', ["usuarios" => $usuarios, "searchText" => $query]);
+            return view('seguridad.usuario.index', ["usuarios" => User::index($query), "searchText" => $query]);
         }
     }
 
@@ -36,36 +33,24 @@ class UsuarioController extends Controller
 
     public function store(UsuarioFormRequest $request)
     {
-        $usuario = new User;
-        $usuario->name = $request->get('name');
-        $usuario->email = $request->get('email');
-        $usuario->password = bcrypt($request->get('password'));
-        $usuario->save();
+        User::guardar($request);
         return Redirect::to('seguridad/usuario');
     }
 
     public function edit($id)
     {
-        $roles=DB::table('roles')->get();
-        return view("seguridad.usuario.edit", ["usuario" => User::findOrFail($id),"roles"=>$roles]);
+        return view("seguridad.usuario.edit", ["usuario" => User::findOrFail($id),"roles"=> User::getRoles()]);
     }
 
     public function update(UsuarioFormRequest $request, $id)
     {
-        $usuario = User::findOrFail($id);
-        $usuario->name = $request->get('name');
-        $usuario->email = $request->get('email');
-        $usuario->password = bcrypt($request->get('password'));
-        $usuario->update();
+        User::actualizar($request,$id);
         return Redirect::to('seguridad/usuario');
     }
 
     public function changeRole(Request $request)
     {
-        $user=User::findOrFail($request->input('id'));
-        $user->assignRole($request->input('role'));
-        $rol=$request->input('role');
-        echo $rol;
+        User::changeRole($request);
         return $this->index($request);
     }
 
