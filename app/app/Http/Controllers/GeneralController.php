@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\GeneralAdmin;
 use Illuminate\Http\Request;
 
 class GeneralController extends Controller
 {
-    public static function getLogo(){
-        $path=public_path();
-        return $path."/logo.png";
+    public static function getLogo()
+    {
+        $path = public_path();
+        return $path . "/logo.png";
     }
 
-    public function search($table,$description){
-        $articles=DB::table($table)
-            ->where('nombre','LIKE','%'.$description.'%')
-            ->orderBy('nombre')
-            ->get();
-        return response()->json(['articulos'=>$articles]);
+    public function search($table, $description)
+    {
+        return response()->json(['articulos' => GeneralAdmin::search($table, $description)]);
     }
 
 
