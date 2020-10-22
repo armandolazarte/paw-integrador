@@ -47,11 +47,12 @@ class Articulo extends Model
     }
     public static function getAll($query) {
       return self::join('categoria as c','articulo.idcategoria','=','c.idcategoria')
-                ->select('articulo.minStock','articulo.idarticulo','articulo.nombre','articulo.codigo','articulo.stock','c.nombre as categoria','articulo.descripcion','articulo.imagen','articulo.estado')
                 ->where ('articulo.nombre','LIKE','%'.$query.'%')//busca por nombre
                 ->orWhere ('articulo.codigo','LIKE','%'.$query.'%')//o busca por codigo
                 ->where('articulo.estado','=','Activo')
                 ->orderBy('articulo.idarticulo','desc')//ordena de manera descendente
+                ->select('articulo.idarticulo', 'articulo.nombre', 'articulo.codigo', 'c.nombre as categoria', 
+                        'articulo.minStock', 'articulo.stock', 'articulo.imagen')
                 ->paginate(10); //pagina de a 7 registros
   
     }

@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section ('contenido')
-    <section class="section-init">
+    <section class="page-init">
         <h3>Listado de Articulos</h3>
         @can('newArticles')
             <a href="articulo/create" class="btn btn-success btn-bg">
@@ -10,17 +10,7 @@
     </section>
 
     <section class="section-content">
-    <!-- @include('almacen.articulo.search') -->
-        <div class="table-filter">
-            <span class="fa fa-filter search-icon"></span>
-            <input type="text" id="filter" onkeyup="filterTable()" name="searchText" placeholder="Filtrar..."
-                   value="{{$searchText}}">
-        </div>
-        <div class="table-search">
-            <span class="fa fa-search search-icon"></span>
-            <input type="text" id="search" name="searchText" placeholder="Buscar..."
-                   value="{{$searchText}}">
-        </div>
+        @include('almacen.articulo.search')
         <table class="table-sortable" id="table-info">
             <thead>
             <th onclick="sortTable(0)">
@@ -68,12 +58,10 @@
             <th>Imagen</th>
             <th>Opciones</th>
             </thead>
+            <tbody id="tablebody">
             @foreach ($articulos as $art)
 
-                <tr
-                        @if($art->minStock > $art->stock)
-                        class="minstock-alert"
-                        @endif>
+                <tr>
                     <td>{{$art->idarticulo}}</td>
                     <td>{{$art->nombre}}</td>
                     <td>{{$art->codigo}}</td>
@@ -103,15 +91,14 @@
                                 Eliminar
                             </a>
                         @endcan
-                        @if($art->minStock > $art->stock)
-                            <i class="fa fa-exclamation-triangle alert"></i>
-                        @endif
                     </td>
                 </tr>
             @endforeach
+            </tbody>
         </table>
         {{$articulos->render()}}
     </section>
+    
     @push('scripts')
     	<script src="{{asset('js/search.js')}}"></script>
      @endpush
