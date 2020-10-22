@@ -54,7 +54,6 @@ class Ingreso extends Model
         $idarticulo = $request->get('idarticulo');
         $cantidad = $request->get('cantidad');
         $precio_compra = $request->get('precio_compra');
-        $precio_venta = $request->get('precio_venta');
 
         $cont = 0;
         while ($cont < count($idarticulo)) {
@@ -63,7 +62,6 @@ class Ingreso extends Model
             $detalle->idarticulo = $idarticulo[$cont];
             $detalle->cantidad = $cantidad[$cont];
             $detalle->precio_compra = $precio_compra[$cont];
-            $detalle->precio_venta = $precio_venta[$cont];
             $detalle->save();
             $cont = $cont + 1;
         }
@@ -80,7 +78,7 @@ class Ingreso extends Model
             ->first();
         $detalles = DB::table('detalle_ingreso as d')
             ->join('articulo as a', 'd.idarticulo', '=', 'a.idarticulo')
-            ->select('a.nombre as articulo', 'd.cantidad', 'd.precio_compra', 'd.precio_venta')
+            ->select('a.nombre as articulo', 'd.cantidad', 'd.precio_compra')
             ->where('d.idingreso', '=', $id)
             ->get();
 

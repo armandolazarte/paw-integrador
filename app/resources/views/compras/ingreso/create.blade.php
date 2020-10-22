@@ -72,11 +72,7 @@
 		<tbody>
 		</tbody>
 		<tfoot>
-			<th>TOTAL</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th colspan="4" style="text-align: right;">TOTAL</th>
 			<th><h4 id="total">$/. 0.00</h4></th>
 		</tfoot>
 	</table>

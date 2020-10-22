@@ -45,7 +45,7 @@ function predictiveList(inp, endpoint, inputValue) {
                     b.innerHTML = "<strong>" + item.nombre.substr(0, val.length) + "</strong>";
                     b.innerHTML += item.nombre.substr(val.length);
           
-                    b.innerHTML += "<input type='hidden' value='" + item.idarticulo + "' data-text='" + item.nombre + "'>";
+                    b.innerHTML += "<input type='hidden' value='" + item.id + "' data-text='" + item.nombre + "'>";
           
                     b.addEventListener("click", function(e) {
                         /* Inserto el value del autocomplete en el text field */
@@ -134,9 +134,9 @@ function predictiveList(inp, endpoint, inputValue) {
 
 let input = document.getElementById("inputText");
 let endpoint = input.dataset.endpoint;
-let inputValue = input.dataset.inputvalue;
+let inputvalue = input.dataset.inputvalue;
  /* Creo elemento de request de manera global */
 window.hinterXHR = new XMLHttpRequest();
 
 /* Llamo a la funcion predictiva */
-predictiveList(input, endpoint, inputValue);
+predictiveList(input, endpoint, inputvalue);
