@@ -28,7 +28,7 @@ class Venta extends Model
     public static function ventasPorMes()
     {
         return self::join('detalle_venta', 'detalle_venta.idventa', '=', 'venta.idventa')
-            ->join('articulo', 'articulo.idarticulo', '=', 'detalle_venta.idarticulo')
+            ->join('articulo', 'articulo.id', '=', 'detalle_venta.idarticulo')
             ->select(
                 DB::raw('month(venta.fecha_hora) mes'),
                 DB::raw('COUNT(venta.idventa) as ventas'),
@@ -60,7 +60,7 @@ class Venta extends Model
             ->first();
 
         $detalles = DB::table('detalle_venta as d')
-            ->join('articulo as a', 'd.idarticulo', '=', 'a.idarticulo')
+            ->join('articulo as a', 'd.idarticulo', '=', 'a.id')
             ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra')
             ->where('d.idventa', '=', $id)
             ->get();

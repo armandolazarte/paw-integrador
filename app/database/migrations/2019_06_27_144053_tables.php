@@ -41,7 +41,7 @@ class Tables extends Migration
         });
 
         Schema::create('articulo', function (Blueprint $table) {
-            $table->increments('idarticulo');
+            $table->increments('id');
             $table->integer('idcategoria')->unsigned();
             $table->string('codigo')->nullable();
             $table->string('nombre');
@@ -50,6 +50,7 @@ class Tables extends Migration
             $table->string('imagen')->nullable();
             $table->string('estado')->nullable();
             $table->integer('minStock')->nullable();
+            $table->decimal('precio_venta',10,2)->nullable();
         });
         Schema::table('articulo', function($table){
             $table->foreign('idcategoria')->references('idcategoria')->on('categoria');
@@ -82,7 +83,7 @@ class Tables extends Migration
 
         Schema::table('detalle_venta',function($table){
             $table->foreign('idventa')->references('idventa')->on('venta');
-            $table->foreign('idarticulo')->references('idarticulo')->on('articulo');
+            $table->foreign('idarticulo')->references('id')->on('articulo');
         });
 
 
@@ -108,12 +109,11 @@ class Tables extends Migration
             $table->integer('idarticulo')->unsigned();
             $table->integer('cantidad')->nullable();
             $table->decimal('precio_compra',10,2)->nullable();
-            $table->decimal('precio_venta',10,2)->nullable();
         });
 
         Schema::table('detalle_ingreso',function($table){
             $table->foreign('idingreso')->references('idingreso')->on('ingreso');
-            $table->foreign('idarticulo')->references('idarticulo')->on('articulo');
+            $table->foreign('idarticulo')->references('id')->on('articulo');
         });
     }
 

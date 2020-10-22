@@ -1,21 +1,17 @@
 @extends ('layouts.admin')
 @section ('contenido')
-    <section class="section-init">
+    <section class="page-init">
         <h3>Listado de Proveedores</h3>
         @can('newProviders')
             <a href="proveedor/create" class="btn btn-success btn-bg">
-                Nuevo
+                Agregar proveedor
             </a>
         @endcan
     </section>
 
 
     <section class="section-content">
-        <div class="table-filter">
-            <span class="fa fa-filter search-icon"></span>
-            <input type="text" id="filter" onkeyup="filterTable()" name="searchText" placeholder="Filtrar..."
-                   value="{{$searchText}}">
-        </div>
+        @include('compras.proveedor.search')
         <table class="table-sortable" id="table-info">
             <thead>
             <th onclick="sortTable(0)">

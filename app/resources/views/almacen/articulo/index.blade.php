@@ -62,30 +62,30 @@
             @foreach ($articulos as $art)
 
                 <tr>
-                    <td>{{$art->idarticulo}}</td>
+                    <td>{{$art->id}}</td>
                     <td>{{$art->nombre}}</td>
                     <td>{{$art->codigo}}</td>
                     <td>{{$art->categoria}}</td>
                     <td>{{$art->minStock}}</td>
                     <td>{{$art->stock}}</td>
-                    <td>{{$art->precio}}</td>
+                    <td>{{$art->precio_venta}}</td>
                     <td>
                         <img src="{{asset('imagenes/articulos/'.$art->imagen)}}" class="thumbs" alt="{{$art->nombre}}" class="img-thumbnail">
                     </td>
 
                     <td>
-                        {{--                        <a href="{{URL::action('ArticuloController@show',$art->idarticulo)}}"--}}
+                        {{--                        <a href="{{URL::action('ArticuloController@show',$art->id)}}"--}}
                         {{--                           class="btn btn-info btn-md">--}}
                         {{--                            Ver--}}
                         {{--                        </a>--}}
                         @can('editArticles')
-                            <a href="{{URL::action('ArticuloController@edit',$art->idarticulo)}}"
+                            <a href="{{URL::action('ArticuloController@edit',$art->id)}}"
                                class="btn btn-alert btn-md">
                                 Editar
                             </a>
                         @endcan
                         @can('destroyArticles')
-                            <a href="{{URL::action('ArticuloController@destroy',$art->idarticulo)}}"
+                            <a href="{{URL::action('ArticuloController@destroy',$art->id)}}"
                                onclick="destroy( event, '{{$art->nombre}}' )"
                                class="btn btn-danger btn-md">
                                 Eliminar

@@ -81,7 +81,6 @@ class Persona extends Model
             ->where('nombre', 'LIKE', '%' . $query . '%')
             ->where('tipo_persona', '=', 'Proveedor')
             ->orwhere('num_documento', 'LIKE', '%' . $query . '%')
-            ->where('tipo_persona', '=', 'Proveedor')
             ->orderBy('idpersona', 'desc')
             ->paginate(7);
     }

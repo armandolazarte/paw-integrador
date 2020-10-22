@@ -25,9 +25,9 @@ class Categoria extends Model
         return DB::table('categoria')->where('condicion', '=', '1')->get();
     }
 
-    public static function getIndex(Request $request, $query)
+    public static function getIndex($query)
     {
-        return DB::table('categoria')->where('nombre', 'LIKE', '%' . $query . '%')
+        return self::where('nombre', 'LIKE', '%' . $query . '%')
             ->where('condicion', '=', '1')
             ->orderBy('idcategoria', 'desc')
             ->paginate(3);

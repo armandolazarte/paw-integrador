@@ -22,7 +22,7 @@ class CategoriaController extends Controller
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            return view('almacen.categoria.index', ["categorias" => Categoria::getIndex($request, $query), "searchText" => $query]);
+            return view('almacen.categoria.index', ["categorias" => Categoria::getIndex($query), "searchText" => $query]);
         }
     }
 

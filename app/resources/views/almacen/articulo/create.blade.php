@@ -21,12 +21,12 @@
 			
 			<p> 
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" placeholder="Nombre...">
+				<input type="text" name="nombre" placeholder="Nombre" value="{{old('nombre')}}">
 			</p>
 
 			<p> 
 				<label>Categoria</label>
-				<select name="idcategoria" class="form-control selectpicker" data-live-search="true" >
+				<select name="idcategoria" class="form-control" data-live-search="true" >
 					@foreach ($categorias as $cat)
 						<option value="{{$cat->idcategoria}}">{{$cat->nombre}} </option>
 					@endforeach
@@ -35,17 +35,22 @@
 
 			<p> 
 				<label for="codigo">Codigo</label>
-				<input type="text" name="codigo" required value="{{old('codigo')}}" placeholder="Codigo del articulo...">
+				<input type="text" name="codigo" required value="{{old('codigo')}}" placeholder="Codigo del articulo">
 			</p>
 
 			<p> 
 				<label for="minStock">Stock Mínimo</label>
-				<input type="number" min="0" name="minStock" required value="{{old('minStock')}}" placeholder="Stock Mínimo...">
+				<input type="number" min="0" name="minStock" required value="{{old('minStock')}}" placeholder="Stock Mínimo">
 			</p>
 
 			<p> 
 				<label for="descripcion">Descripcion</label>
-				<input type="text" name="descripcion" value="{{old('descripcion')}}" placeholder="Descripcion del articulo...">
+				<input type="text" name="descripcion" value="{{old('descripcion')}}" placeholder="Descripcion del articulo">
+			</p>
+
+			<p> 
+				<label for="imagen">Precio de venta</label>
+				<input type="number" min="0" step="0.1" name="precio_venta" required value="{{old('precio_venta')}}" placeholder="Precio">
 			</p>
 
 			<p> 

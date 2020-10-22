@@ -18,6 +18,7 @@ class permissions extends Seeder
         Permission::create(['name' => 'articles']);
         Permission::create(['name' => 'newArticles']);
         Permission::create(['name' => 'editArticles']);
+        Permission::create(['name' => 'destroyArticles']);
         Permission::create(['name' => 'categories']);
         Permission::create(['name' => 'newCategories']);
         Permission::create(['name' => 'editCategories']);
