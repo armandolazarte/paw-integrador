@@ -57,13 +57,9 @@
 			<input type="number" name="pprecio_compra" id="pprecio_compra" placeholder="P. Compra">
 		</p>
 
-		<p>
-			<label for="precio_venta">Precio Venta</label>
-			<input type="number" name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta">
-		</p>
-
-		<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg btn-fullw">Agregar Item <i class="fa fa-plus icon-menu"></i></button>
 	</div>
+
+	<button type="button" name="bt_add" id="bt_add" class="btn btn-success btn-bg btn-fullw">Agregar Item <i class="fa fa-plus icon-menu"></i></button>
 
 	<table id="detalles" class="table">
 		<thead>
@@ -71,7 +67,6 @@
 			<th>Articulo</th>
 			<th>Cantidad</th>
 			<th>Precio Compra</th>
-			<th>Precio Venta</th>
 			<th>Subtotal</th>
 		</thead>
 		<tbody>

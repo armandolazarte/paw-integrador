@@ -317,7 +317,11 @@ th, td {
     float: left;
 }
 
-.table-filter input, .table-search input {
+.table-filter select {
+    padding: 1em;
+  }
+
+.table-search input {
   padding: 1em;
   padding-left: 2.375rem;
 }

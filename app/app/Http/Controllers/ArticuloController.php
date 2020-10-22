@@ -22,11 +22,16 @@ class ArticuloController extends Controller
     public function index(Request $request)
     {
         if ($request) { //si request existe voy a obteneer todos los registros categoria de la db
-            $articulos = Articulo::index($request);
+            $query = trim($request->get('searchText'));
+            $articulos = Articulo::index($query);
+
             if ($request->has('json')) {
                 return $articulos;
             } else {
-                return view('almacen.articulo.index', ["articulos" => $articulos, "searchText" => $query]); //va a devolver la vista almacenada en almacen/cateogria  y se le pasan los parametros categorias (las listadas de la variable) y texto de busqueda que tenemos en la variable query
+                return view('almacen.articulo.index', 
+                            ["articulos" => $articulos, 
+                            "categorias" => Categoria::getCategorias(),
+                            "searchText" => $query]);
             }
         }
     }

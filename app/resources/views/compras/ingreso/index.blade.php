@@ -1,10 +1,10 @@
 @extends ('layouts.admin')
 @section ('contenido')
-    <section class="section-init">
+    <section class="page-init">
         <h3>Listado de Ingresos</h3>
         @can('newIncomes')
             <a href="ingreso/create" class="btn btn-success btn-bg">
-                Agregar ingreso
+                Ingreso de stock
             </a>
         @endcan
     </section>

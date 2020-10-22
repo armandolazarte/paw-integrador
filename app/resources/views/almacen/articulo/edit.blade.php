@@ -14,7 +14,7 @@
     </section>
 
     <section class="page-form">
-        {!!Form::model($articulo,['method'=>'PATCH', 'class'=> 'form form-edit', 'route'=>['articulo.update',$articulo->idarticulo], 'files'=>'true'])!!}
+        {!!Form::model($articulo,['method'=>'PATCH', 'class'=> 'form form-edit', 'route'=>['articulo.update',$articulo->id], 'files'=>'true'])!!}
         {{Form::token()}}
         <div class="form-group">
 
@@ -42,14 +42,14 @@
             </p>
 
             <p> 
-            <label for="stock">Stock</label>
-            <input type="number" name="stock" required value="{{$articulo->stock}}">
-            </p>
-
-            <p> 
             <label for="minStock">Stock Mínimo</label>
             <input type="number" name="minStock" required value="{{$articulo->minStock}}">
             </p>
+
+            <p> 
+				<label for="imagen">Precio de venta</label>
+				<input type="number" min="0" step="0.1" name="precio_venta" required value="{{$articulo->precio_venta}}" placeholder="Precio">
+			</p>
 
             <p> 
             <label for="descripcion">Descripcion</label>
@@ -63,13 +63,14 @@
             @if (($articulo->imagen)!="")
                 <figure>
                     <img src="{{asset('imagenes/articulos/'.$articulo->imagen)}}" height="250px" width="250px">
+                    <figcaption>Imágen actual</figcaption>
                 </figure>
             @endif
             </p>
 
         </div>
 
-        <div class="form-control">
+        <div class="form-control-3col">
     			<button class="btn btn-success btn-bg" type="submit">Guardar</button>
     			<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
     			<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>

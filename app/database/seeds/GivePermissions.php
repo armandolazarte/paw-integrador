@@ -16,6 +16,7 @@ class GivePermissions extends Seeder
         $role->givePermissionTo('articles');
         $role->givePermissionTo('newArticles');
         $role->givePermissionTo('editArticles');
+        $role->givePermissionTo('destroyArticles');
         $role->givePermissionTo('categories');
         $role->givePermissionTo('newCategories');
         $role->givePermissionTo('editCategories');
