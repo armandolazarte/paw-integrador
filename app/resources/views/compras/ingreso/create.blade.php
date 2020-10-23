@@ -42,7 +42,7 @@
 		<p>
 			<label>Articulo</label>
 			<span class="autocomplete">
-				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/almacen/articulo" data-inputvalue="pidarticulo" />
+				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/api/articulos?inStock=1" data-inputvalue="pidarticulo" />
 			</span>
 			<input type="hidden" name="pidarticulo" id="pidarticulo">
 		</p>

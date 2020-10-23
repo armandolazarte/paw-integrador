@@ -35,20 +35,36 @@ class VentaController extends Controller
         $respuesta = Venta::getVenta($id);
         $total = 0;
         foreach ($respuesta['detalles'] as $det) {
-            $subtotal = $det->cantidad * $det->precio_compra - $det->descuento;
+            $subtotal = $det->cantidad * $det->precio_venta - $det->descuento;
             $total += $subtotal;
         };
-        $pdf = new PDF();
+
+        
         $date = date('d/m/Y');
-        $view = \Illuminate\Support\Facades\View::make('pdfs.venta', ['detalles' => $respuesta['detalles'], 'total' => $total, 'fecha' => $date, 'venta' => $respuesta['venta'], 'tipo' => 'ORIGINAL']);
-        $html = $view->render();
-        $pdf::addPage('P', 'LEGAL');
-        $pdf::writeHTML($html, true, false, true, false, '');
-        $view = \Illuminate\Support\Facades\View::make('pdfs.venta', ['detalles' => $respuesta['detalles'], 'total' => $total, 'fecha' => $date, 'venta' => $respuesta['venta'], 'tipo' => 'COPIA']);
-        $html = $view->render();
-        $pdf::addPage('P', 'LEGAL');
-        $pdf::writeHTML($html, true, false, true, false, '');
-        $pdf::Output('venta.pdf', 'I');
+        $data = array (
+            'detalles' => $respuesta['detalles'], 
+            'total' => $total, 
+            'fecha' => $date, 
+            'venta' => $respuesta['venta'], 
+            'tipo' => 'ORIGINAL'
+        );
+
+        $pdf = PDF::loadView('pdfs.venta', $data);
+
+//        return $pdf->download('afip_'.$date.'.pdf');
+        //return view('templates.facturas.afip', $data);
+        return $pdf->stream('comprobante_'.$date.'.pdf'); 
+
+        //$pdf = new PDF();
+        // $view = \Illuminate\Support\Facades\View::make('pdfs.venta', ['detalles' => $respuesta['detalles'], 'total' => $total, 'fecha' => $date, 'venta' => $respuesta['venta'], 'tipo' => 'ORIGINAL']);
+        // $html = $view->render();
+        // $pdf::addPage('P', 'LEGAL');
+        // $pdf::writeHTML($html, true, false, true, false, '');
+        // $view = \Illuminate\Support\Facades\View::make('pdfs.venta', ['detalles' => $respuesta['detalles'], 'total' => $total, 'fecha' => $date, 'venta' => $respuesta['venta'], 'tipo' => 'COPIA']);
+        // $html = $view->render();
+        // $pdf::addPage('P', 'LEGAL');
+        // $pdf::writeHTML($html, true, false, true, false, '');
+        // $pdf::Output('venta.pdf', 'I');
     }
 
     public function index(Request $request)
@@ -67,6 +83,7 @@ class VentaController extends Controller
         $personas = Persona::getClientes();
         $articulos = Articulo::getArticulosVenta();
         $num = Venta::getNumeroVenta();
+
         return view("ventas.venta.create", ["personas" => $personas, "articulos" => $articulos, "num_comprobante" => $num]);
     }
 

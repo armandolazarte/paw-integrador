@@ -127,16 +127,19 @@ class Articulo extends Model
             ->get();
     }
 
-    public static function getAll($queryString, $filter)
+    public static function getAll($queryString, $filter, $inStock)
     {
+
         return self::join('categoria as c', 'articulo.idcategoria', '=', 'c.idcategoria')
             ->when(! empty($queryString), function ($query) use ($queryString) {
                 return $query->where('articulo.nombre', 'LIKE', '%' . $queryString . '%')
-                ->orWhere('articulo.codigo', 'LIKE', '%' . $queryString . '%');
+                ->orWhere('articulo.codigo', 'LIKE', '%' . $queryString . '%')
+                ->where('articulo.stock', '>', '1');
             })
             ->when(! empty($filter), function ($query) use ($filter) {
                     return $query->where('c.idcategoria', '=', intval($filter));
                 })
+            
             ->where('articulo.estado', '=', 'Activo')
             ->orderBy('articulo.id', 'ASC')
             ->select('articulo.id', 'articulo.nombre', 'articulo.codigo', 'c.nombre as categoria',
@@ -147,7 +150,7 @@ class Articulo extends Model
 
     public static function index($query)
     {
-        return self::getAll($query, false);
+        return self::getAll($query, false, false);
     }
 
 

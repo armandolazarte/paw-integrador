@@ -74,10 +74,10 @@
                     </td>
 
                     <td>
-                        {{--                        <a href="{{URL::action('ArticuloController@show',$art->id)}}"--}}
-                        {{--                           class="btn btn-info btn-md">--}}
-                        {{--                            Ver--}}
-                        {{--                        </a>--}}
+                        <a href="{{URL::action('ArticuloController@show',$art->id)}}"
+                           class="btn btn-info btn-md">
+                            Ver
+                        </a>
                         @can('editArticles')
                             <a href="{{URL::action('ArticuloController@edit',$art->id)}}"
                                class="btn btn-alert btn-md">

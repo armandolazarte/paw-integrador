@@ -36,7 +36,7 @@
 	<p>
 			<label>Articulo</label>
 			<span class="autocomplete">
-				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/almacen/articulo" data-inputvalue="pidarticulo" />
+				<input id="inputText" type="text" name="articulo" placeholder="Buscar artículo..." data-endpoint="/api/articulos?inStock=1" data-inputvalue="pidarticulo" />
 			</span>
 			<input type="hidden" name="pidarticulo" id="pidarticulo">
 	</p>
@@ -75,11 +75,7 @@
 				<th>Subtotal</th>
 			</thead>
 			<tfoot>
-				<th>TOTAL</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th colspan="5">TOTAL</th>
 				<th><h4 id="total">$/. 0.00</h4><input type="hidden" name="total_venta" id="total_venta"></th>
 			</tfoot>
 			<tbody>

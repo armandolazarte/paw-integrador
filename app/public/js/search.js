@@ -40,8 +40,6 @@ function searchAjax(event, endpoint, editUrl) {
 
                 var response = JSON.parse( this.response );
 
-                console.log(response)
-
                 data = response.data
 
 
@@ -73,7 +71,9 @@ function searchAjax(event, endpoint, editUrl) {
                     let listItem = document.createElement('td');
                     listItem.classList.add('td-controls');
 
-                    listItem.innerHTML = '<a href="'+editUrl+'/'+item.id+'" class="btn btn-alert btn-md">Editar</a> \
+                    editUrl = editUrl.replace('#', item.id)
+
+                    listItem.innerHTML = '<a href="'+editUrl+'" class="btn btn-alert btn-md">Editar</a> \
                                             <a href="" class="btn btn-danger btn-md">Eliminar</a>';
                     tableRow.appendChild(listItem);
 

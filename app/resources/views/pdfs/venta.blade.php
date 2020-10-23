@@ -53,7 +53,7 @@
         </table>
     </div>
     <div style="text-align: center">
-        <img src="{{asset('logo.png')}}" width="1000%" height="1000%">
+        <img src="" width="1000%" height="1000%">
     </div>
     <div style="text-align: left">
         Cliente: {{$venta->nombre}}
@@ -64,7 +64,6 @@
                 <th> Articulo</th>
                 <th> Cantidad</th>
                 <th> Precio Venta</th>
-                <th> Mano de Obra</th>
                 <th> Descuento</th>
                 <th> Subtotal</th>
             </tr>
@@ -72,16 +71,15 @@
                 <tr>
                     <td>{{$det->articulo}}</td>
                     <td>{{$det->cantidad}}</td>
-                    <td>{{$det->precio_compra}}</td>
-                    <td>{{$det->mano_obra}}</td>
+                    <td>{{$det->precio_venta}}</td>
                     <td>{{$det->descuento}}</td>
-                    <td>{{$det->cantidad * $det->precio_compra-$det->descuento}}</td>
+                    <td>{{$det->cantidad * $det->precio_venta-$det->descuento}}</td>
                 </tr>
             @endforeach
         </table>
     </div>
     <div>
-        Total: ${{$total}}
+        
     </div>
 
     <div style="text-align: right">

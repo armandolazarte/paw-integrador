@@ -15,8 +15,9 @@ class ArticuloController extends Controller
         if ($request){ //si request existe voy a obteneer todos los registros categoria de la db
             
             $query = trim($request->get('query'));
-            $filter = trim($request->get('filterCategory'));	//determina cual es el texto de busqueda para filtrar todas las categorias. searchText porque va a existir un objeto en un formulario listado donde se van a ingresar las categorias que quiero mostrar   
-            $articulos = Articulo::getAll($query, $filter);
+            $filter = trim($request->get('filterCategory'));
+            $inStock = boolval($request->get('inStock'));	//determina cual es el texto de busqueda para filtrar todas las categorias. searchText porque va a existir un objeto en un formulario listado donde se van a ingresar las categorias que quiero mostrar   
+            $articulos = Articulo::getAll($query, $filter, $inStock);
 
             return response()->json($articulos);
 
@@ -24,5 +25,19 @@ class ArticuloController extends Controller
             return null;
         }
     }
+
+    public function getID($id){
+
+        if ($id){ //si request existe voy a obteneer todos los registros categoria de la db
+            $articulo = Articulo::find($id);
+
+            return response()->json($articulo);
+
+        } else {
+            return null;
+        }
+    }
+
+    
 
 }

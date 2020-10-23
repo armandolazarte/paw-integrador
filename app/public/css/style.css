@@ -122,13 +122,13 @@ body {
 
 .button-sticky-mobile {
   display: None;
-  height: 52px;
   text-align: center;
   width: 100%;
 }
 
 .button-sticky-mobile a {
   color:white;
+  font-size: 30px;
 }
 
 @media only screen and (max-width: 754px) {
@@ -289,22 +289,6 @@ th, td {
     background-color: #ffff99;
 }
 
-.minstock-alert {
-  color: red;
-  background-color: #ff00001c;
-}
-
-.alert {
-  animation: alert 1s step-start infinite;
-  float: right;
-}
-
-@keyframes alert {
-  50% {
-    opacity: 0;
-  }
-}
-
 /* FILTRO */
 
 .table-filter {
@@ -440,6 +424,10 @@ img.thumbs {
   font-size: 20px;
   font-weight: bolder;
   padding: 12px 0;
+}
+
+b {
+    font-weight: bold;
 }
 
 /* FORM */
@@ -604,12 +592,52 @@ color: #ffffff;
     background: red;
     color: white;
     font-size: 16px;
+    
   }
 
 #notification-list.open {
     display: block;
 }
 
-  #notification-list {
-      display: none;
-  }
+#notification-list {
+    display: none;
+}
+
+.alert {
+    animation: alert 1s step-start infinite;
+}
+
+@keyframes alert {
+    50% {
+        opacity: 0;
+    }
+}
+
+ul#notification-list {
+    position: absolute;
+    right: 10px;
+    top: 45px;
+    z-index: 9999;
+    font-size: 15px;
+    background-color: white;
+    color: #222d32;
+    min-width: 200px;
+    transition: opacity 215ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 143ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+#notification-list li {
+    color: rgba(0, 0, 0, 0.87);
+    width: auto;
+    height: 24px;
+    overflow: hidden;
+    font-weight: 400;
+    line-height: 1.5em;
+    padding: 8px 20px;
+    white-space: nowrap;
+}
+
+#notification-list li:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}

@@ -4,10 +4,7 @@ window.onload = function() {
     addProduct();
   });
 
-  console.log("HOLA")
-
   document.getElementById('pidarticulo').addEventListener('change', function(){
-    console.log("Hola")
     chargeValues();
   });
 
@@ -20,24 +17,22 @@ subtotal=[];
 function chargeValues(){
   let id = document.getElementById('pidarticulo').value;
   if (id) {
-    let request = new XMLHttpRequest();
-    let endpoint = url + '/almacen/articulo/' + id;
-    request.open('Get', endpoint);
-    request.send();
-    console.log(request);
-    request.onreadystatechange = function() {
-      if(request.readyState === 4) {
-        if(request.status === 200) {
-          let art = JSON.parse(request.response)[0];
-          document.getElementById('pprecio_venta').value = art.precio_promedio;
-          document.getElementById('pstock').value = art.stock;
-        } else {
-          alert("Hubo un error");
-        }
-      }
-    }
-  }
 
+    var xhttp = new XMLHttpRequest();
+    xhttp.abort();
+    xhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+        var art = JSON.parse( this.response );
+        document.getElementById('pprecio_venta').value = art.precio_venta;
+        document.getElementById('pstock').value = art.stock;
+        
+        }
+      };
+
+      let endpoint = url + '/api/articulo/' + id;
+      xhttp.open('GET', endpoint, true);
+      xhttp.send();
+    }
 }
 
   function addProduct(){
