@@ -49,7 +49,7 @@ class ArticuloController extends Controller
 
     public function show($id)
     {
-        return Articulo::getArticulo($id);
+        return view("almacen.articulo.show", ["articulo" => Articulo::find($id)]); //llama a la vista show pero envia la categoria definida para que la muestre y solo muestra esa con findOrShow
     }
 
 

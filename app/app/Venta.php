@@ -61,7 +61,7 @@ class Venta extends Model
 
         $detalles = DB::table('detalle_venta as d')
             ->join('articulo as a', 'd.idarticulo', '=', 'a.id')
-            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_compra')
+            ->select('a.nombre as articulo', 'd.cantidad', 'd.descuento', 'd.precio_venta')
             ->where('d.idventa', '=', $id)
             ->get();
         return array_merge([
@@ -99,6 +99,8 @@ class Venta extends Model
             $num = $venta->num_comprobante;
             $num = $num + 1;
         };
+
+        return $num;
     }
 
     public static function guardarVenta(Http\Requests\VentaFormRequest $request)
@@ -132,7 +134,7 @@ class Venta extends Model
                 $detalle->idarticulo = $idarticulo[$cont];
                 $detalle->cantidad = $cantidad[$cont];
                 $detalle->descuento = $descuento[$cont];
-                $detalle->precio_compra = $precio_venta[$cont];
+                $detalle->precio_venta = $precio_venta[$cont];
                 $detalle->save();
                 $cont = $cont + 1;
                 array_push($articulosGuardados, $detalle->idarticulo);
@@ -150,8 +152,8 @@ class Venta extends Model
         $admin = new NotificacionAdmin();
         foreach ($articulosGuardados as $articulo) {
             $art = Articulo::find($articulo);
-            if ($art->stock < $art->minimo) {
-                $admin->create($art->idarticulo);
+            if ($art->stock < $art->minStock) {
+                $admin->create($art->id);
             }
         }
     }

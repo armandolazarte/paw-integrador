@@ -24,24 +24,86 @@ for (var i in dropdown) {
 
 /* NOTIFICATIONS */
 
-window.hinterXHR = new XMLHttpRequest();
+function readNotifications(url, all, id) {
 
-// Aborto request
-window.hinterXHR.abort();
+    var xhttp = new XMLHttpRequest();
+    xhttp.abort();
+    xhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+           console.log(this.response)
+        var response = JSON.parse( this.response );
+        return response;
+        }
+      };
 
-window.hinterXHR.onreadystatechange = function() {
+    if (all) {
+        xhttp.open('GET', url, true);
+        xhttp.send();
+    } else {
+        xhttp.open('POST', url, true);
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+        let data = {};
+        data.idarticulo = id;
+        xhttp.send(JSON.stringify(data));
+    }
+ }
+
+ function getAllNotifications() {
+
+    window.hinterXHR = new XMLHttpRequest();
+    // Aborto request
+    window.hinterXHR.abort();
+    window.hinterXHR.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 
         var response = JSON.parse( this.response );
+        data = response.notificaciones
+        let notification_counter = document.getElementById('notification-counter');
+        let notification_list = document.getElementById('notification-list');
+        notification_list.innerHTML = '';
+        
+        notification_counter.innerHTML = data.length;
+        if (data.length > 0) {
+            notification_counter.classList.add('alert');
+            data.forEach(function(item) {
+                let liElement = document.createElement('li');
+                liElement.dataset.id = item.id;
+                liElement.innerHTML = item.msj;
+                /* En el on click de una notificacion redirecciono a la vista de ese articulo */
+                liElement.addEventListener("click", function(e) {
+                    let url_notif = url + '/api/notificaciones/read';
+                    readNotifications(url_notif, false, item.id);
+                    updateNotifications();
+                   // window.location.href = url + '/almacen/articulo/' +  item.idarticulo;
+                });
+                notification_list.appendChild(liElement);
+            });
+            let liElement = document.createElement('li');
+            liElement.id = -1;
+            liElement.innerHTML = 'Marcar todas leídas';
+            liElement.addEventListener("click", function(e) {
+                let url_notif = url + '/api/notificaciones/read_all';
+                readNotifications(url_notif, true, null);
+                updateNotifications();
 
-        data = response.data
+            });
+            notification_list.appendChild(liElement);
+        } else {
+            if (notification_counter.classList.contains('alert')) {
+                notification_counter.classList.remove('alert');
+            }
+        }
 
     }
-};
-let url_notifications = url + '/api/notificaciones/all';
+    };
 
-window.hinterXHR.open("GET", url_notifications, true);
-window.hinterXHR.send()
+    let url_notifications = url + '/api/notificaciones/all';
+    window.hinterXHR.open("GET", url_notifications, true);
+    window.hinterXHR.send()
+
+}
+
+getAllNotifications();
 
 var notification_button = document.getElementById('notification-button');
     notification_button.onclick = function (e) {
@@ -53,6 +115,12 @@ var notification_button = document.getElementById('notification-button');
             submenu.classList.add('open');
         }
     }
+
+function updateNotifications() {
+    getAllNotifications();
+    let notification_button = document.getElementById('notification-button');
+    notification_button.dispatchEvent(new Event('click'));
+}
 
 
 /* STICKY BUTTON */

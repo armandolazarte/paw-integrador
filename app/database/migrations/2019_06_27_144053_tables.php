@@ -45,7 +45,7 @@ class Tables extends Migration
             $table->integer('idcategoria')->unsigned();
             $table->string('codigo')->nullable();
             $table->string('nombre');
-            $table->integer('stock')->nullable();
+            $table->integer('stock')->default(0);
             $table->string('descripcion')->nullable();
             $table->string('imagen')->nullable();
             $table->string('estado')->nullable();
@@ -77,7 +77,7 @@ class Tables extends Migration
             $table->integer('idventa')->unsigned();
             $table->integer('idarticulo')->unsigned();
             $table->integer('cantidad')->nullable();
-            $table->decimal('precio_compra',4,2)->nullable();
+            $table->decimal('precio_venta',10,2)->nullable();
             $table->decimal('descuento',4,2)->nullable();
         });
 
@@ -119,11 +119,12 @@ class Tables extends Migration
         Schema::create('notificaciones',function(Blueprint $table){
            $table->increments('id');
            $table->integer('idarticulo')->unsigned();
-           $table->integer('visto');
+           $table->string('msj')->nullable();
+           $table->integer('visto')->default(0);
         });
 
         Schema::table('notificaciones',function($table){
-           $table->foreign('idarticulo')->references('idarticulo')->on('articulo');
+           $table->foreign('idarticulo')->references('id')->on('articulo');
         });
     }
 

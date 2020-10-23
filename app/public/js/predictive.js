@@ -1,6 +1,4 @@
 function predictiveList(inp, endpoint, inputValue) {
-
-    console.log(inputValue)
     
     var currentFocus;
     /* Agrego event listener en on write del input */
@@ -67,8 +65,8 @@ function predictiveList(inp, endpoint, inputValue) {
             }
         };
 
-        let endpoint = url + '/almacen/articulo';
-        window.hinterXHR.open("GET", endpoint + "?json=true&searchText=" + val, true);
+        let final_endpoint = url + endpoint;
+        window.hinterXHR.open("GET", final_endpoint + "&query=" + val, true);
         window.hinterXHR.send()
 
     });

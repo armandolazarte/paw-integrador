@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'Api'], function () {
 
     Route::get('articulos', 'ArticuloController@search')->name('general_search');
+    Route::get('articulo/{id}', 'ArticuloController@getID')->name('id_search');
 
     Route::group(['prefix' => '/notificaciones'], function () {
         Route::get('/all','NotificacionController@getAll')->name('notificaciones_all');

@@ -26,11 +26,7 @@
 			<th>Subtotal</th>
 		</thead>
 		<tfoot>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th colspan="4" style="text-align: right;">Total</th>
 			<th><h4 id="total">{{$venta->total_venta}}</h4></th>
 		</tfoot>
 		<tbody>
@@ -40,7 +36,7 @@
 					<td>{{$det->cantidad}}</td>
 					<td>{{$det->precio_venta}}</td>
 					<td>{{$det->descuento}}</td>
-					<td>{{$det->cantidad * $det->precio_compra-$det->descuento}}</td>
+					<td>{{$det->cantidad * $det->precio_venta-$det->descuento}}</td>
 				</tr>
 			@endforeach
 		</tbody>
