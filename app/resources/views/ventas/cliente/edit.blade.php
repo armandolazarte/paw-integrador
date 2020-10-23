@@ -5,7 +5,8 @@
 	@include('errors.form')
 </section>
 <section class="page-form">
-	{!!Form::model($persona,['method'=>'PATCH', ['ClienteController@edit',$persona->idpersona]])!!}
+	{!!Form::model($persona,['method'=>'PATCH', 'class'=> 'form form-edit','route'=>['cliente.update',$persona->idpersona]])!!}
+
 	{{Form::token()}}
 	<div class="form-group">
 		<label for="nombre">Nombre</label>
@@ -39,6 +40,13 @@
 
 		<label for="email">Email</label>
 		<input type="text" name="email" value="{{$persona->email}}" placeholder="Email...">
+
+		<label for="categoria_persona">Categoria del Cliente</label>
+		<select name="idcategoria_persona" id="idcategoria_persona" class="form-control selectpicker" data-live-search="true">
+			@foreach($categorias as $categoria)
+				<option value="{{$categoria->idcategoria_persona}}">{{$categoria->nombre}}</option>
+			@endforeach
+		</select>
 
 		<div class="form-control">
 			<button class="btn btn-success btn-bg" type="submit">Guardar</button>
