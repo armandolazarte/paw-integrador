@@ -11,17 +11,25 @@ window.onload = function() {
   subtotal=[];
 
   function agregar(){
-    let art = document.getElementById("pidarticulo");
-    let idarticulo = art.value;
-    let articulo = document.getElementsByName("articulo")[0].value;
+    let idarticulo=document.getElementById('pidarticulo').value;
+    articulo = document.getElementById('inputText').value;
+    
     let cantidad  = document.getElementById("pcantidad").value;
     let precio_compra = document.getElementById("pprecio_compra").value;
-    let precio_venta = document.getElementById("pprecio_venta").value;
 
-    if(idarticulo !="" && cantidad !="" && cantidad>0 && precio_compra !="" && precio_venta !=""){
+
+
+    if(idarticulo !="" && cantidad !="" && cantidad>0 && precio_compra !=""){
       subtotal[cont]=(cantidad*precio_compra);
       total=total+subtotal[cont];
-      var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-alert" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_compra[]" value="'+precio_compra+'"><td><input type="number" name="precio_venta[]" value="'+precio_venta+'"><td>'+subtotal[cont]+'</td></tr>';
+
+      var fila='<tr class="selected" id="fila'+cont+'"> \
+                    <td><button type="button" class="btn btn-alert" onclick="eliminar('+cont+');">X</button></td> \
+                    <td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td> \
+                    <td><input type="number" name="cantidad[]" value="'+cantidad+'"></td> \
+                    <td><input type="number" name="precio_compra[]" value="'+precio_compra+'"></td> \
+                    <td>'+subtotal[cont]+'</td> \
+                  </tr>';
       limpiar();
       document.getElementById("total").innerHTML = "$/."+ total;
       evaluar();
@@ -38,7 +46,6 @@ window.onload = function() {
   function limpiar(){
     document.getElementById("pcantidad").value = '';
     document.getElementById("pprecio_compra").value = '';
-    document.getElementById("pprecio_venta").value = '';
     document.getElementsByName("articulo")[0].value = '';
     document.getElementById("pidarticulo").value = '';
   }

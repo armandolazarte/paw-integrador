@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section ('contenido')
-    <section class="section-init">
+    <section class="page-init">
         <h3>Listado de Categorias</h3>
         @can('newClientsCategories')
             <a href="categoria_persona/create" class="btn btn-success btn-bg">

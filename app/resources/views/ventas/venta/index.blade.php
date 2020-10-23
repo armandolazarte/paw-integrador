@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section ('contenido')
-    <section class="section-init">
+    <section class="page-init">
         <h3>Listado de Ventas</h3>
         <a href="venta/create" class="btn btn-success btn-bg">
             Nuevo
