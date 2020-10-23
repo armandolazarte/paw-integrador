@@ -16,8 +16,9 @@ class NotificacionController extends Controller
         $this->admin = new NotificacionAdmin;
     }
 
-    public function read($idarticulo)
+    public function read()
     {
+        $idarticulo = request()->get('idarticulo');
         $flag = $this->admin->read($idarticulo);
         if ($flag == true) {
             return response()->json(['mensaje' => 'Notificación Leída', 'flag' => true]);
@@ -27,5 +28,10 @@ class NotificacionController extends Controller
     public function getAll()
     {
         return response()->json(['notificaciones' => $this->admin->getAll()]);
+    }
+
+    public function readAll(){
+        $this->admin->readAll();
+        $this->getAll();
     }
 }
