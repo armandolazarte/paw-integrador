@@ -54,5 +54,15 @@ class UsuarioController extends Controller
         return $this->index($request);
     }
 
+    public function destroy($id)
+    {
+        User::desactivar($id);
+        return Redirect::to('seguridad/usuario');
+    }
+
+
+    public function show($id){
+        print_r('entro aca');
+    }
 
 }

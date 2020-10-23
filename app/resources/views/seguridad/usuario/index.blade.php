@@ -49,7 +49,7 @@
                         @endcan
                         @can('destroyUsers')
                             <a href="{{URL::action('UsuarioController@destroy',$usu->id)}}"
-                               onclick="destroy( event, '{{$usu->name}}' )"
+
                                class="btn btn-danger btn-md">
                                 Eliminar
                             </a>

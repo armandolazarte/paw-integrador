@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public static function index(string $query)
     {
-        return DB::table('users')->where('name', 'LIKE', '%' . $query . '%')
+        return DB::table('users')->where('name', 'LIKE', '%' . $query . '%')->where('activado',1)
             ->orderBy('id', 'desc')
             ->paginate(7);
     }
@@ -68,4 +68,18 @@ class User extends Authenticatable
         $rol=$request->input('role');
         echo $rol;
     }
+
+    public static function desactivar($id){
+        $user = self::find($id);
+        $user->activado=0;
+        $user->update();
+    }
+
+    public static function activar($id){
+        $user = self::find($id);
+        $user->activado=1;
+        $user->update();
+    }
+
+
 }

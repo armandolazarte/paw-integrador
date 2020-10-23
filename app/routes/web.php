@@ -31,4 +31,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/{slug?}', 'HomeController@index');
 Route::patch('/seguridad/usuarios/changeRole','UsuarioController@changeRole')->name('usuarios.changeRole');
+
+Route::get('/seguridad/usuarios/desactivar/{id}','UsuarioController@destroy')->name('usuarios.desactivar');
 //Route::get('almacen/articulo/eliminar/{id}','ArticuloController@changeState');
