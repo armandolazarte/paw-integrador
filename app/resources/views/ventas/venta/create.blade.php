@@ -23,8 +23,7 @@
 		<label for="tipo_comprobante" class="control-label">Tipo de Comprobante: </label>
 		<select class="form-control" id="tipo_comprobante" name="tipo_comprobante">
 				<option value="Remito">Remito</option>
-				<option value="final">Factura B a Consumidor Final</option>
-				<option value="monotributo">Factura B a Responsable Monotributo</option>
+				<option value="afip">Factura B - AFIP TESTING</option>
 		</select>
 	</p>
 

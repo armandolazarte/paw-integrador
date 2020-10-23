@@ -73,7 +73,7 @@
 		</tbody>
 		<tfoot>
 			<th colspan="4" style="text-align: right;">TOTAL</th>
-			<th><h4 id="total">$/. 0.00</h4></th>
+			<th><h4 id="total">$/. 0.00</h4><input type="hidden" name="total_compra" id="total_compra" ></th>
 		</tfoot>
 	</table>
 

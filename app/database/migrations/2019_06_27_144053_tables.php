@@ -65,6 +65,7 @@ class Tables extends Migration
             $table->dateTime('fecha_hora')->nullable();
             $table->decimal('total_venta',11,2)->nullable();
             $table->decimal('impuesto',10,2)->nullable();
+            $table->json('info_afip',10,2)->nullable();
             $table->string('estado')->nullable();
         });
 
@@ -94,6 +95,7 @@ class Tables extends Migration
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante')->nullable();
             $table->string('num_comprobante')->nullable();
+            $table->decimal('total_compra',11,2)->nullable();
             $table->dateTime('fecha_hora')->nullable();
             $table->decimal('impuesto',10,2)->nullable();
             $table->string('estado')->nullable();
@@ -118,14 +120,10 @@ class Tables extends Migration
 
         Schema::create('notificaciones',function(Blueprint $table){
            $table->increments('id');
-           $table->integer('idarticulo')->unsigned();
            $table->string('msj')->nullable();
            $table->integer('visto')->default(0);
         });
 
-        Schema::table('notificaciones',function($table){
-           $table->foreign('idarticulo')->references('id')->on('articulo');
-        });
     }
 
     /**

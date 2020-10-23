@@ -13,22 +13,6 @@ class NotificacionAdmin extends Model
         return Notificacion::where('visto',0)->get();
     }
 
-    public function create($idarticulo)
-    {
-        try {
-            DB::beginTransaction();
-            $notificacion = new Notificacion;
-            $notificacion->idarticulo = $idarticulo;
-            $notificacion->visto = 0;
-            $notificacion->save();
-            return true;
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollback();
-            throw $e;
-        }
-    }
-
     public function read($id)
     {
         try {
