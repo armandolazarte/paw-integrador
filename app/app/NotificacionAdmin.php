@@ -10,7 +10,7 @@ class NotificacionAdmin extends Model
 {
     public function getAll()
     {
-        return Notificacion::all();
+        return Notificacion::where('visto',0)->get();
     }
 
     public function create($idarticulo)
@@ -42,6 +42,9 @@ class NotificacionAdmin extends Model
             DB::rollback();
             throw $e;
         }
+    }
 
+    public function readAll(){
+        DB::table('notificaciones')->where('visto', '=', 0)->update(array('visto' => 1));
     }
 }
