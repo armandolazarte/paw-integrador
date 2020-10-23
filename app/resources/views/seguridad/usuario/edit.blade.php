@@ -16,32 +16,40 @@
 {!!Form::model($usuario,['method'=>'PATCH', 'route'=>['usuarios.changeRole']])!!}
 {{Form::token()}}
 <div class="form-group">
-    <label for="id" class="col-md-4 control-label" >ID</label>
-    <input id="id" type="text" class="form-control"  name="id" value="{{$usuario->id}}" readonly="readonly">
-    @if ($errors->has('name'))
-        <span class="help-block">
-            <strong>{{ $errors->first('name') }}</strong>
-        </span>
-    @endif
-    <label for="name" class="col-md-4 control-label" >Nombre</label>
-    <input id="name" type="text" class="form-control" readonly name="name" value="{{$usuario->name}}">
-    @if ($errors->has('name'))
+
+    <p>
+        <label for="id" class="col-md-4 control-label" >ID</label>
+        <input id="id" type="text" class="form-control"  name="id" value="{{$usuario->id}}" readonly="readonly">
+        @if ($errors->has('name'))
             <span class="help-block">
                 <strong>{{ $errors->first('name') }}</strong>
             </span>
         @endif
+    </p>
 
-    <label for="role" class="col-md-4 control-label">Seleccione un Rol</label>
-    <select name="role" class="form-control" required>
-        <option value="fail" disabled selected>Seleccione un Rol...</option>
-        @foreach($roles as $r)
-            <option value="{{$r->name}}">{{$r->name}}</option>
-        @endforeach
-    </select>
+    <p>
+        <label for="name" class="col-md-4 control-label" >Nombre</label>
+        <input id="name" type="text" class="form-control" readonly name="name" value="{{$usuario->name}}">
+        @if ($errors->has('name'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
+    </p>
+
+    <p>
+        <label for="role" class="col-md-4 control-label">Seleccione un Rol</label>
+        <select name="role" class="form-control" required>
+            <option value="fail" disabled selected>Seleccione un Rol...</option>
+            @foreach($roles as $r)
+                <option value="{{$r->name}}">{{$r->name}}</option>
+            @endforeach
+        </select>
+    </p>
 
     </div>
 
-    <div class="form-control">
+    <div class="form-control-3col">
 			<button class="btn btn-success btn-bg" type="submit">Guardar</button>
 			<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
 			<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>

@@ -23,15 +23,14 @@ class Persona extends Model
     protected $guarded = [
     ];//aca los que no queremos que se agreguen al modelo
 
-    public static function indexClientes(\Illuminate\Http\Request $request, string $query)
+    public static function indexClientes(string $tipo, string $query)
     {
         return DB::table('persona as p')
             ->select('p.idpersona', 'p.tipo_persona', 'p.nombre', 'p.tipo_documento', 'p.num_documento', 'p.direccion', 'p.telefono', 'p.email', 'cp.nombre as categoria_persona')
             ->join('categoria_persona as cp', 'p.idcategoria_persona', '=', 'cp.idcategoria_persona')
+            ->where('tipo_persona', '=', $tipo)
             ->where('p.nombre', 'LIKE', '%' . $query . '%')
-            ->where('tipo_persona', '=', 'Cliente')
             ->orwhere('num_documento', 'LIKE', '%' . $query . '%')
-            ->where('tipo_persona', '=', 'Cliente')
             ->orderBy('idpersona', 'asc')
             ->paginate(10);
     }

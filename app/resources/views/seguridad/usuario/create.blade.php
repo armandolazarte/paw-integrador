@@ -15,48 +15,34 @@
 
 	<section class="page-form">
 		{!!Form::open((array('url' => 'seguridad/usuario', 'method'=>'POST', 'autocomplete'=>'off')))!!}
-		{{Form::token()}}
+        {{Form::token()}}
+        
+        <div class="form-group">
 
-		<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-        <label for="name" class="col-md-4 control-label">Nombre</label>
-        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+            <p>
+                <label for="name" class="col-md-4 control-label">Nombre</label>
+                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+            </p>
 
-        @if ($errors->has('name'))
-            <span class="help-block">
-                <strong>{{ $errors->first('name') }}</strong>
-            </span>
-        @endif
+            <p>
+                <label for="email" class="col-md-4 control-label">E-Mail</label>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+            </p>
 
-        <label for="email" class="col-md-4 control-label">E-Mail</label>
-        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+            <p>
+                <label for="password" class="col-md-4 control-label">Contraseña</label>
+                <input id="password" type="password" class="form-control" name="password">
+            </p>
 
-        @if ($errors->has('email'))
-            <span class="help-block">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-        @endif
+            <p>
+                <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+            </p>
 
-        <label for="password" class="col-md-4 control-label">Contraseña</label>
-        <input id="password" type="password" class="form-control" name="password">
 
-        @if ($errors->has('password'))
-            <span class="help-block">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-        @endif
+        </div>
 
-      	<label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
-        <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-        @if ($errors->has('password_confirmation'))
-            <span class="help-block">
-                <strong>{{ $errors->first('password_confirmation') }}</strong>
-            </span>
-        @endif
-
-	</div>
-
-	<div class="form-control">
+	<div class="form-control-3col">
 		<button class="btn btn-success btn-bg" type="submit">Guardar</button>
 		<button class="btn btn-danger btn-bg" type="reset">Limpiar</button>
 		<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>
