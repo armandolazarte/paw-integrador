@@ -23,7 +23,8 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::group(['prefix' => '/notificaciones'], function () {
         Route::get('/all','NotificacionController@getAll')->name('notificaciones_all');
-        Route::get('/read/{id}','NotificacionController@read')->name('notificaciones_read');
+        Route::post('/read','NotificacionController@read')->name('notificaciones_read');
+        Route::get('/read_all','NotificacionController@readAll')->name('notificaciones_read_all');
     });
 
 });

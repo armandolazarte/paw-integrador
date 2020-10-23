@@ -5,7 +5,7 @@
 	@include('errors.form')
 </section>
 <section class="page-form">
-	{!!Form::model($categoria,['method'=>'PATCH', 'class'=> 'form form-edit','route'=>['categoria_persona.update',$categoria->idcategoria]])!!}
+	{!!Form::model($categoria,['method'=>'PATCH', 'class'=> 'form form-edit','route'=>['categoria_persona.update',$categoria->idcategoria_persona]])!!}
 	{{Form::token()}}
 	<div class="form-group">
 		<p>
