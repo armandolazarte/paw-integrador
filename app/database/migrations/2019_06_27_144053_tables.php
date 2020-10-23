@@ -115,6 +115,16 @@ class Tables extends Migration
             $table->foreign('idingreso')->references('idingreso')->on('ingreso');
             $table->foreign('idarticulo')->references('id')->on('articulo');
         });
+
+        Schema::create('notificaciones',function(Blueprint $table){
+           $table->increments('id');
+           $table->integer('idarticulo')->unsigned();
+           $table->integer('visto');
+        });
+
+        Schema::table('notificaciones',function($table){
+           $table->foreign('idarticulo')->references('idarticulo')->on('articulo');
+        });
     }
 
     /**
