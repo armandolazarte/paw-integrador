@@ -127,6 +127,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | AFIP INFO
+    |--------------------------------------------------------------------------
+    |
+    */
+
+
+    'afip_cuit' => env('AFIP_CUIT'),
+    'afip_enviroment' => env('AFIP_ENVIROMENT'),
+    'afip_enviroment' => env('AFIP_ENVIROMENT'),
+    'afip_fc_a' => env('AFIP_FC_A'),
+    'afip_fc_b' => env('AFIP_FC_B'),
+    'afip_pto_venta' => env('AFIP_PTO_VENTA'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |

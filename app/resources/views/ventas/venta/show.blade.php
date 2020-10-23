@@ -7,7 +7,7 @@
 		<p>{{$venta->nombre}}</p>
 
 		<label>Tipo Comprobante</label>
-		<p>{{$venta->tipo_comprobante}}</p>
+		<p>{{strtoupper($venta->tipo_comprobante)}}</p>
 
 		<label for="serie_comprobante">Serie Comprobante</label>
 		<p>{{$venta->serie_comprobante}}</p>

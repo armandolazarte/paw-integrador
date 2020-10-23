@@ -32,6 +32,7 @@ window.onload = function() {
                   </tr>';
       limpiar();
       document.getElementById("total").innerHTML = "$/."+ total;
+      document.getElementsByName("total_compra")[0].value = total;
       evaluar();
       var table = document.getElementById("detalles");
       var newRow   = table.insertRow(table.rows.length - 1);

@@ -55,7 +55,7 @@ class Venta extends Model
         $venta = DB::table('venta as v')
             ->join('persona as p', 'v.idcliente', '=', 'p.idpersona')
             ->join('detalle_venta as dv', 'v.idventa', '=', 'dv.idventa')
-            ->select('v.idventa', 'v.fecha_hora', 'p.nombre', 'v.tipo_comprobante', 'v.serie_comprobante', 'v.num_comprobante', 'v.impuesto', 'v.estado', 'v.total_venta')
+            ->select('v.idventa', 'v.fecha_hora', 'p.nombre', 'v.tipo_comprobante', 'v.serie_comprobante', 'v.num_comprobante', 'v.impuesto', 'v.estado', 'v.total_venta', 'v.idcliente', 'v.info_afip')
             ->where('v.idventa', '=', $id)
             ->first();
 
@@ -140,21 +140,10 @@ class Venta extends Model
                 array_push($articulosGuardados, $detalle->idarticulo);
             }
             DB::commit();
-            self::guardarNotificaciones($articulosGuardados);
+            return $venta;
         } catch (Exception $e) {
             DB::rollback();
             throw $e;
-        }
-    }
-
-    public static function guardarNotificaciones($articulosGuardados)
-    {
-        $admin = new NotificacionAdmin();
-        foreach ($articulosGuardados as $articulo) {
-            $art = Articulo::find($articulo);
-            if ($art->stock < $art->minStock) {
-                $admin->create($art->id);
-            }
         }
     }
 

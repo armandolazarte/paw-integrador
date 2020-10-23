@@ -74,7 +74,6 @@ function readNotifications(url, all, id) {
                     let url_notif = url + '/api/notificaciones/read';
                     readNotifications(url_notif, false, item.id);
                     updateNotifications();
-                   // window.location.href = url + '/almacen/articulo/' +  item.idarticulo;
                 });
                 notification_list.appendChild(liElement);
             });

@@ -45,7 +45,7 @@ function chargeValues(){
     stock= document.getElementById("pstock").value;
 
     if(idarticulo !="" && cantidad !="" && cantidad>0 && descuento !="" && precio_venta !=""){
-      if(parseInt(stock) > parseInt(cantidad)){
+      if(parseInt(stock) >= parseInt(cantidad)){
 
         subtotal[cont]=(cantidad*precio_venta) - descuento;
         total=total+subtotal[cont];
@@ -77,9 +77,10 @@ function chargeValues(){
 
 
   function limpiar(){
+    document.getElementById('inputText').value= '';
     document.getElementById('pidarticulo').value = '';
-    document.getElementById("pcantidad").value = '';
-    document.getElementById("pdescuento").value = '';
+    document.getElementById("pcantidad").value = 1;
+    document.getElementById("pdescuento").value = 0;
     document.getElementById("pprecio_venta").value = '';
   }
 

@@ -18,7 +18,8 @@ class Ingreso extends Model
         'num_comprobante',
         'fecha_hora',
         'impuesto',
-        'estado'
+        'estado',
+        'total_compra'
     ];
     protected $guarded = [
     ];//aca los que no queremos que se agreguen al modelo
@@ -44,6 +45,7 @@ class Ingreso extends Model
         $ingreso->tipo_comprobante = $request->get('tipo_comprobante');
         $ingreso->serie_comprobante = $request->get('serie_comprobante');
         $ingreso->num_comprobante = $request->get('num_comprobante');
+        $ingreso->total_compra = $request->get('total_compra');
 
         $mytime = Carbon::now('America/Argentina/Buenos_Aires');
         $ingreso->fecha_hora = $mytime->toDateTimeString();

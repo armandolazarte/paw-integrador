@@ -109,7 +109,7 @@
         </tr>
             <tr>
                 <td colspan="5" style="width:43%;">
-                    <p style="text-align: center;font-weight: bold;font-size: 24px;">TCG</p>
+                    <p style="text-align: center;font-weight: bold;font-size: 24px;">EMPRESA</p>
                 </td>
                 <td class="type" colspan="2">
                     <span class="type-letter">{{ $type_voucher}}</span>
@@ -147,13 +147,13 @@
         <tbody>
             <tr>
                 <td width="40%" style=" border-right: solid 1px #FFF;">
-                    <span style="font-weight: bold;">{{ strlen($voucher['dni']) > 8 ? 'CUIT' : 'DNI' }}:</span> {{ $voucher['dni'] }}<br><br>
-                    <span style="font-weight: bold;">Condición frente al IVA:</span> {{ $voucher['type_consumer'] }}<br><br>
-                    <span style="font-weight: bold;">Condición de venta: {{ $method_payment }}</span><br>
+                    <span style="font-weight: bold;">{{ $cliente['tipo_documento'] == 'CUIT' ? 'CUIT' : 'DNI' }}:</span> {{ $cliente['num_documento'] }}<br><br>
+                    <span style="font-weight: bold;">Condición frente al IVA:</span> Cosumidor Final<br><br>
+                    <span style="font-weight: bold;">Condición de venta:</span><br>
                 </td>
                 <td width="60%" style=" border-right: solid 1px #FFF;">
-                  <span style="font-weight: bold;">Apellido y Nombre / Razón Social:</span> {{ $voucher['fullname'] }}<br><br>
-                  <span style="font-weight: bold;">Domicilio:</span> {{ $voucher['address'] }}<br><br>
+                  <span style="font-weight: bold;">Apellido y Nombre / Razón Social:</span> {{ $cliente['nombre'] }}<br><br>
+                  <span style="font-weight: bold;">Domicilio:</span> {{ $cliente['direccion'] }}<br><br>
                 </td>
             </tr>
         </tbody>
@@ -182,16 +182,16 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="7">Subtotal:</td>
-          <td>$ {{ $sale['total'] }}</td>
+          <td colspan="4">Subtotal:</td>
+          <td>$ {{ $total }}</td>
         </tr>
         <tr>
-          <td colspan="7">Importe Otros Tributos:</td>
+          <td colspan="4">Importe Otros Tributos:</td>
           <td>$ 0,00</td>
         </tr>
         <tr>
-          <td colspan="7">Importe Total:</td>
-          <td>$ {{ $sale['total'] }}</td>
+          <td colspan="4">Importe Total:</td>
+          <td>$ {{ $total }}</td>
         </tr>
       </tfoot>
     </table>
@@ -201,7 +201,7 @@
           <tr>
               <td colspan="6" style="vertical-align: middle;">
                   <div style="margin-left: 8px;">  
-                    <img id="logo" src="adminlte/img/afip-logo.png" alt="" width="100px" /> <span style="text-align: center;font-weight: bold;font-size: 18px;">  Comprobante Autorizado</span><br>
+                    <img id="logo" src="imagenes/afip-logo.png" alt="" width="100px" /> <span style="text-align: center;font-weight: bold;font-size: 18px;">  Comprobante Autorizado</span><br>
                     <span style="font-size: 8px;">Esta Administración Federal no se responsabiliza por los datos ingresados en el detalle de la operación</span> <br>
                     </div>
               </td>
