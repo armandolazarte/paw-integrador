@@ -39,7 +39,7 @@ class UsuarioController extends Controller
 
     public function edit($id)
     {
-        return view("seguridad.usuario.edit", ["usuario" => User::findOrFail($id),"roles"=> User::getRoles()]);
+        return view("seguridad.usuario.edit", ["usuario" => User::findOrFail($id), "roles"=> User::getRoles()]);
     }
 
     public function update(UsuarioFormRequest $request, $id)

@@ -48,7 +48,8 @@ class User extends Authenticatable
 
     public static function getRoles()
     {
-        $roles=DB::table('roles')->get();
+        $roles= DB::table('roles')->get();
+        return $roles;
     }
 
     public static function actualizar(Http\Requests\UsuarioFormRequest $request, $id)

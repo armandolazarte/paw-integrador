@@ -22,7 +22,7 @@ class ProveedorController extends Controller
     {
         if ($request) {
             $query = trim($request->get('searchText'));
-            return view('compras.proveedor.index', ["personas" => Persona::indexProveedores($query), "searchText" => $query]);
+            return view('compras.proveedor.index', ["personas" => Persona::indexProveedores('Proveedor',$query), "searchText" => $query]);
         }
     }
 

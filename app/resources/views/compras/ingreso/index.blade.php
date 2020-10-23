@@ -10,6 +10,7 @@
     </section>
 
     <section class="section-content">
+        @include('compras.ingreso.search')
         <table class="table-sortable" id="table-info">
             <thead>
             <th onclick="sortTable(0)">

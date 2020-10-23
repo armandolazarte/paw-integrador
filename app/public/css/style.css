@@ -303,10 +303,10 @@ th, td {
 
 .table-filter select {
     padding: 1em;
-  }
+}
 
-.table-search input {
-  padding: 1em;
+.table-filter input, .table-search input {
+  padding: 0.95em;
   padding-left: 2.375rem;
 }
 
@@ -416,6 +416,15 @@ img.thumbs {
 
 .btn-fullw {
     width: 100%;
+}
+
+.btn-search {
+    height: 45px;
+
+}
+
+.btn-search span.fa.fa-search {
+  margin-left: 10px;
 }
 
 /* TITULOS */
