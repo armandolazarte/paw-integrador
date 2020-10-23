@@ -21,7 +21,11 @@
 
 	<p>
 		<label for="tipo_comprobante" class="control-label">Tipo de Comprobante: </label>
-		<input type="text" class="form-control" readonly="" id="tipo_comprobante" name="tipo_comprobante" value="Remito">
+		<select class="form-control" id="tipo_comprobante" name="tipo_comprobante">
+				<option value="Remito">Remito</option>
+				<option value="final">Factura B a Consumidor Final</option>
+				<option value="monotributo">Factura B a Responsable Monotributo</option>
+		</select>
 	</p>
 
 	<p>
@@ -37,12 +41,6 @@
 			<input type="hidden" name="pidarticulo" id="pidarticulo">
 	</p>
 
-
-	<p>
-		<label for="cantidad">Cant.</label>
-		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cant"  value="1">
-	</p>
-
 	<p>
 		<label for="cantidad">Stock</label>
 		<input type="number" disabled name="pstock" id="pstock" placeholder="Stock" readOnly>
@@ -51,6 +49,11 @@
 	<p>
 		<label for="precio_venta">Precio Venta</label>
 		<input type="number" disabled name="pprecio_venta" id="pprecio_venta" placeholder="P. Venta" readOnly>
+	</p>
+
+	<p>
+		<label for="cantidad">Cant.</label>
+		<input type="number" name="pcantidad" id="pcantidad" placeholder="Cant"  value="1">
 	</p>
 
 	<p>

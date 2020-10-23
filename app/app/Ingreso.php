@@ -77,7 +77,7 @@ class Ingreso extends Model
             ->groupBy('i.idingreso', 'i.fecha_hora', 'p.nombre', 'i.tipo_comprobante', 'i.serie_comprobante', 'i.num_comprobante', 'i.impuesto', 'i.estado')
             ->first();
         $detalles = DB::table('detalle_ingreso as d')
-            ->join('articulo as a', 'd.idarticulo', '=', 'a.idarticulo')
+            ->join('articulo as a', 'd.idarticulo', '=', 'a.id')
             ->select('a.nombre as articulo', 'd.cantidad', 'd.precio_compra')
             ->where('d.idingreso', '=', $id)
             ->get();

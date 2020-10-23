@@ -72,7 +72,7 @@ class Articulo extends Model
     {
         return DB::table('articulo as art')
             ->join('detalle_ingreso as di', 'art.id', '=', 'di.idarticulo')
-            ->select('art.id', 'art.nombre', 'art.stock', DB::raw('max(di.precio_venta) as precio_promedio'))
+            ->select('art.id', 'art.nombre', 'art.stock', 'art.precio_venta as precio_promedio')
             ->where('art.id', '=', $id)
             ->groupBy('art.id', 'art.nombre', 'art.stock')
             ->get();
@@ -120,7 +120,7 @@ class Articulo extends Model
         return DB::table('articulo as art')
             ->join('detalle_ingreso as di', 'art.id', '=', 'di.idarticulo')
             ->join('categoria as c', 'art.idcategoria', '=', 'c.idcategoria')
-            ->select(DB::raw('CONCAT(c.nombre," | ",art.nombre) AS articulo'), 'art.id', 'art.stock', DB::raw('max(di.precio_venta) as precio_promedio'))
+            ->select(DB::raw('CONCAT(c.nombre," | ",art.nombre) AS articulo'), 'art.id', 'art.stock', 'art.precio_venta as precio_promedio')
             ->where('art.estado', '=', 'Activo')
             ->where('art.stock', '>', '0')
             ->groupBy('articulo', 'art.id', 'art.stock')
