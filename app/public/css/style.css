@@ -296,6 +296,15 @@ th, td {
     float: right;
 }
 
+
+@media only screen and (max-width: 754px) {
+
+    .table-filter {
+        float: left;
+    }
+
+}
+
 .table-search {
     margin: 10px 0;
     float: left;
@@ -363,6 +372,16 @@ img.thumbs {
     border: 1px solid transparent;
     color: white;
     text-decoration: none;
+}
+
+
+@media only screen and (max-width: 754px) {
+
+    .table-sortable a.btn {
+        width: 80%;
+        margin: 4px 0;
+    }    
+
 }
 
 .btn-bg {

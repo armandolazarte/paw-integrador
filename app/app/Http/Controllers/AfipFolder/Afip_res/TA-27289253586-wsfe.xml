@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<loginTicketResponse version="1.0">
+    <header>
+        <source>CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+        <destination>SERIALNUMBER=CUIT 27289253586, CN=tcgsistema</destination>
+        <uniqueId>3715184603</uniqueId>
+        <generationTime>2020-10-23T16:17:46.579-03:00</generationTime>
+        <expirationTime>2020-10-24T04:17:46.579-03:00</expirationTime>
+    </header>
+    <credentials>
+        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMjk0ODUzNTYwIiBnZW5fdGltZT0iMTYwMzQ4MDYwNiIgZXhwX3RpbWU9IjE2MDM1MjM4NjYiLz4KICAgIDxvcGVyYXRpb24gdHlwZT0ibG9naW4iIHZhbHVlPSJncmFudGVkIj4KICAgICAgICA8bG9naW4gZW50aXR5PSIzMzY5MzQ1MDIzOSIgc2VydmljZT0id3NmZSIgdWlkPSJTRVJJQUxOVU1CRVI9Q1VJVCAyNzI4OTI1MzU4NiwgQ049dGNnc2lzdGVtYSIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjI3Mjg5MjUzNTg2IiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==</token>
+        <sign>rFtUy+kfQMv8O6J7D2WEZXGeSxkLf1Pzy+0ZZBx80s66wlgYAtXHp/Bi7wuBHUkZsBFVPpMnLrr6MZ0kPSCAm5jlhr6Y3zF2pKdU4d2dJEwFkYC85ZTyuHZHY6v15nxpv80I8racLoHUN/yj2Rdqwklnq7z0uSdss8bwqIAzjBo=</sign>
+    </credentials>
+</loginTicketResponse>

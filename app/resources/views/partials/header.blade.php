@@ -1,5 +1,5 @@
 <header class="header">
-  <section class="header__bar" id="header-user" style="text-align: left">Bienvenido, {{Auth::user()->name}}</section>
+  <section class="header__bar" id="header-user" style="text-align: left">Hola, {{Auth::user()->name}}</section>
   <section class="header__bar"  id="header-title" style="text-align: center">StockControl</section>
   <section class="header__bar"  id="header-notification">
     <div id="notification-button">
