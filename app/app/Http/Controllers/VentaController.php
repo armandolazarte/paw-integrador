@@ -34,6 +34,8 @@ class VentaController extends Controller
 
         $respuesta = Venta::getVenta($id);
         $total = 0;
+        $info = [];
+        $info['date'] = Carbon::parse($respuesta['venta']->fecha_hora)->format('d/m/Y');
         foreach ($respuesta['detalles'] as $det) {
             $subtotal = $det->cantidad * $det->precio_venta - $det->descuento;
             $total += $subtotal;

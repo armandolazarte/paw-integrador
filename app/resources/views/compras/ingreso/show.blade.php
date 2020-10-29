@@ -2,16 +2,16 @@
 @section ('contenido')
 <section class="page-content">
 	<div class="form-group">
-		<label for="proveedor">Proveedor</label>
+		<b>Proveedor</b>
 		<p>{{$ingreso->nombre}}</p>
 
-		<label>Tipo Comprobante</label>
+		<b>Tipo Comprobante</b>
 		<p>{{$ingreso->tipo_comprobante}}</p>
 
-		<label for="serie_comprobante">Serie Comprobante</label>
+		<b >Serie Comprobante</b>
 		<p>{{$ingreso->serie_comprobante}}</p>
 
-		<label for="num_comprobante">Numero Comprobante</label>
+		<b>Numero Comprobante</b>
 		<p>{{$ingreso->num_comprobante}}</p>
 	</div>
 

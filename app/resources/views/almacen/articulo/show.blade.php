@@ -32,9 +32,11 @@
 							</figure>
 		@endif
 
-
-	
 	</div>
+
+	<div class="form-control-3col">
+    			<a href="{{ URL::previous() }}" class="btn btn-info btn-bg">Volver</a>
+    </div>
 
 </section>
 
